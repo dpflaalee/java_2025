@@ -20,5 +20,6 @@ public class CastingEx003 {
 		float fl = 1+1.0f;
 		System.out.print(fl);
 		
+		sc.close();
 	}
 }

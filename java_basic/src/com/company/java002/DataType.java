@@ -45,5 +45,7 @@ public class DataType {
 		System.out.println(ch);		//출력
 		System.out.println((int)ch);//(int) 정수표현시 65	
 		
+		System.out.println(in);
+		
 	}
 }

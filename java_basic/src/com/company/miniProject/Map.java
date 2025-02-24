@@ -130,8 +130,7 @@ public class Map {
 			default:
 				System.out.println("메뉴 확인 후 다시 입력해 주세요.");
 
-			}
-			sc.close();
+			}sc.close();
 		}
 	}
 }

@@ -8,7 +8,7 @@ public class Casting001 {
 		int in = 4;
 		long l = 8L;
 		float f = 3.14f; // 실수는 무조건 double로 인식해서 f를 붙여줘야함
-		double d = 3.14;
+		//double d = 3.14;
 		
 		sh=by; // 정수(2byte)-정수(1byte) 변환 
 		in=by; // 정수(4byte)-정수(1byte) 
@@ -36,6 +36,8 @@ public class Casting001 {
 		System.out.println(num1+num2);
 		System.out.println( (int)1.5 + (int)2.7 ); 
 		
+		
+		System.out.println(sh);
 		
 	}//end main
 }//end class

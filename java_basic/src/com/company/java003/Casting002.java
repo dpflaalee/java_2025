@@ -54,6 +54,6 @@ public class Casting002 {
 		System.out.println("입력한 문자:" + ch);		
 		
 		//Q2대문자를 입력받아 소문자로 변경시키는 프로그램
-		
+		scanner.close();
 	}
 }

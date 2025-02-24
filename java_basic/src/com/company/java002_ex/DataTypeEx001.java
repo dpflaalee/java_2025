@@ -14,6 +14,6 @@ public class DataTypeEx001 {
 		System.out.print("나이를 입력하세요. : ");
 		age = scanner.nextInt();
 		System.out.printf("내 나이는 %d세 입니다", age);
-		
+		scanner.close();
 	}
 }
