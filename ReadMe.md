@@ -28,3 +28,10 @@
 1. for/while 기초이론
 2. for 응용문제
 3. 미니 은행 프로젝트...
+
+...
+
+###6. 2025-02-24
+1. while/do-while 기초 문법과 활용예제
+2. array 개념과 활용예제
+3. bank mini project 1차 완료
