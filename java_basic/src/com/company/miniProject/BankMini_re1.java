@@ -4,10 +4,9 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class BankMini_re1 {
-	//HashMap 이름 소문자로
-	//continue 보다는 break 필요없는 구간은 삭제할 수 있도록 확인
-	//변수...는 그때그때 선언하고 삭제하는걸로?
-	//입금 / 출금 시 마이너스 불가능하게
+	//추가 수정사항
+	//코드 중복되는 부분 합치기
+	//배열 이용해보기
 	public static void main(String[] args) {
 		HashMap<String, String>pwmap = new HashMap<>();
 		HashMap<String, String>namemap = new HashMap<>();
@@ -114,3 +113,5 @@ public class BankMini_re1 {
 		
 	}//end main
 }//end class
+
+//https://youtube.com/shorts/5ay0_rs6eJc?feature=share
