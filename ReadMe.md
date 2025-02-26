@@ -1,3 +1,5 @@
+[Bank mini project](https://youtube.com/shorts/5ay0_rs6eJc?feature=share)
+
 ###1. 2025-02-17
 1. welcome
 2. git (로컬저장소 + 원격저장소_
@@ -44,3 +46,5 @@
 3. bank mini project 1차 수정
       >> 중복 코드 줄여 최종 완성 후 영상 촬영
       >> 배열 버전으로 코드 수정 ※ 3명 주어진 옵션으로
+
+###08. 
