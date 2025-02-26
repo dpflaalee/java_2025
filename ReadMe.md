@@ -45,4 +45,8 @@
    -중복 코드 줄여 최종 완성 후 영상 촬영 [Bank mini project](https://youtube.com/shorts/5ay0_rs6eJc?feature=share)   
    -이후 추가되면 좋을 사항 : 배열 버전으로 코드 수정 ※ 3명 주어진 옵션으로
 
-###08. 
+...
+
+###08. 2025-02-26
+1. Array 이중배열 추가 문제 풀이
+2. Method - 함수 선언과 호출
