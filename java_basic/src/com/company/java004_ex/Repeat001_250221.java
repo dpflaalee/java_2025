@@ -2,7 +2,7 @@ package com.company.java004_ex;
 
 import java.util.Scanner;
 
-public class Repeat001 {
+public class Repeat001_250221 {
 	public static void main(String[]args) {
 		
 		int a;

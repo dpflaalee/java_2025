@@ -1,4 +1,4 @@
-package com.company.java007_ex;
+package com.company.java006_ex;
 
 public class ArrEx008__multi {
 	public static void main(String[] args) {

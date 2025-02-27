@@ -2,7 +2,7 @@ package com.company.java003_ex;
 
 import java.util.Scanner;
 
-public class Repeat003 {
+public class Repeat003_score {
 	public static void main(String[]args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("국어점수를 입력하시오:"); int lang = sc.nextInt();
