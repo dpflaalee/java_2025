@@ -1,4 +1,4 @@
-package com.company.java015;
+package com.company.java013;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +25,7 @@ class Milk{
 public class Collection002_List_Object {
 	public static void main(String[] args) {
 		//2. Milk 자료형으로 ArrayList 동적배열만들기 milks
-		List<Milk> milks = new ArrayList<>();
+		List<Milk> milks = new ArrayList<>(); // >> Generic : int , String , int
 		
 		//3. data넣기
 		milks.add(  new Milk(1, "white", 1200));

@@ -60,7 +60,7 @@ class User{
 	}
 }
 
-public class InterEx003 {
+public class InterfaceEx003 {
 	public static void main(String[] args) {
 		User launchorder = new User();
 		launchorder.order(new Burger()); // 버거 하나요 void order (Lunch a){}

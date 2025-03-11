@@ -1,4 +1,4 @@
-package com.company.java015_ex;
+package com.company.java013;
 
 import java.util.ArrayList;
 import java.util.Scanner;

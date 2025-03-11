@@ -19,7 +19,7 @@ class Driver{
 	void drive(Vehicle v) {v.run();}
 }
 
-public class InterEx002 {
+public class InterfaceEx002 {
 	public static void main(String[] args) {
 		Driver driver = new Driver();
 		
