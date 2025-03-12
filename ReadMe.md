@@ -1,3 +1,10 @@
+###16. 2025-03-12
+1. lambda 자바 api 함수형 인터페이스
+2. stream
+3. IO 기초문법
+
+...
+
 ###15. 2025-03-11
 1. Collection Framework - Map
 2. Lambda 함수 기초
