@@ -1,4 +1,4 @@
-package java027_part002_정리문제_etc;
+package com.company.javaPart002;
 
 public class ScoreProcess_ver2 {
 	public ScoreProcess_ver2() { super(); }

@@ -1,4 +1,4 @@
-package java027_part002_정리문제_etc;
+package com.company.javaPart002;
 
 public class Score_ver2 {
 	private String name;    
