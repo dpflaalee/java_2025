@@ -10,8 +10,6 @@
 	String oname = request.getParameter("oname");
 	int num = Integer.parseInt(request.getParameter("num"));
 	
-	//out.println(oname + "/" );
-	
 	//3 Driver 연동
 	Connection conn = null; PreparedStatement pstmt=null; //ResultSet rset = null'
 	String sql="insert into milk_order (oname, num, oip) values (?,?,?);";

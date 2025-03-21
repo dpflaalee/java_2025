@@ -128,7 +128,7 @@
 			<!-- 주문하기 -->
 		    <div class="card my-3">
 		      <div class="card-header" style="background-color: #E8E7D2">
-		        <a class="btn" data-bs-toggle="collapse" href="#collapseOne" style="color: #839772; font-weight: bold; font-size: 1.2em;">
+		        <a class="btn" data-bs-toggle="collapse" href="#collapseOne" style="color: #e9734f; font-weight: bold; font-size: 1.2em;">
 		          주문하기
 		        </a>
 		      </div>
@@ -140,17 +140,28 @@
 						method 방식	데이터 노출 안됨(post)
 						name 		oname, num
 					 -->
-					  <form action="milk_input.jsp" method="post">
+					  <form action="milk_input.jsp" method="post" onsubmit="return check()">
 					    <div class="mb-3 mt-3">
-					      <label for="oname">NAME</label>
+					      <label for="oname" style="font-weight: bold;">NAME</label>
 					      <input type="text" class="form-control" id="oname" placeholder="상품명을 입력하세요" name="oname">
 					    </div>
 					    <div class="mb-3">
-					      <label for="num">NUM</label>
+					      <label for="num" style="font-weight: bold;">NUM</label>
 					      <input type="number" min="1" max="10" class="form-control" id="num" placeholder="수량을 입력하세요" name="num">
 					    </div>
-					    <button type="submit" class="btn btn-primary" style="background-color: #e9734f;">주문하기</button>
+					    <button type="submit" class="btn btn-primary" style="background-color: #e9734f; font-weight: bold;">주문하기</button>
 					  </form>
+					  <script>
+					  	function check() {
+					  		var name = document.getElementById("oname");
+					  		var num = document.getElementById("num");
+					  		
+					  		if(oname.value==null){alert("값을 입력하세요"); oname.focus(); return false;}
+					  		if(num.value==null){alert("값을 입력하세요"); num.focus(); return false;}
+							
+						}
+					  
+					  </script>
 		        	<!--  -->
 		        </div>
 		      </div>
@@ -160,7 +171,7 @@
 		    <!-- 주문수정 -->		    
 		    <div class="card my-3">
 		      <div class="card-header" style="background-color: #E8E7D2">
-		        <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseTwo" style="color: #839772; font-weight: bold; font-size: 1.2em;">
+		        <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseTwo" style="color: #e9734f; font-weight: bold; font-size: 1.2em;">
 		        주문수정
 		      </a>
 		      </div>
@@ -170,18 +181,18 @@
 					<!--  -->
 					  <form action="milk_update.jsp" method="post">
 					  	<div class="mb-3 mt-3">
-					      <label for="ono_update">수정 주문번호</label>
+					      <label for="ono_update" style="font-weight: bold;">수정 주문번호</label>
 					      <input type="number" class="form-control" id="ono_update" placeholder="수정할 주문번호를 입력하세요." name="ono">
 					    </div>
 					    <div class="mb-3 mt-3">
-					      <label for="oname_update">상품명 수정</label>
+					      <label for="oname_update" style="font-weight: bold;">상품명 수정</label>
 					      <input type="text" class="form-control" id="oname_update" placeholder="상품명을 입력하세요" name="oname">
 					    </div>
 					    <div class="mb-3">
-					      <label for="num_update">수량 수정</label>
+					      <label for="num_update" style="font-weight: bold;">수량 수정</label>
 					      <input type="number" class="form-control" id="num_update" placeholder="수량을 입력하세요" name="num">
 					    </div>
-					    <button type="submit" class="btn btn-primary" style="background-color: #e9734f;">주문수정하기</button>
+					    <button type="submit" class="btn btn-primary" style="background-color: #e9734f; font-weight: bold;">주문수정하기</button>
 					  </form>
 		        	<!--  -->
 		        	<!--  -->
@@ -193,7 +204,7 @@
 		   	<!-- 주문삭제 -->
 		    <div class="card my-3">
 		      <div class="card-header" style="background-color: #E8E7D2">
-		        <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseThree" style="color: #839772; font-weight: bold; font-size: 1.2em;">
+		        <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseThree" style="color: #e9734f; font-weight: bold; font-size: 1.2em;">
 		          주문삭제
 		        </a>
 		      </div>
@@ -203,10 +214,10 @@
 		        	<!--  -->
 					  <form action="milk_delete.jsp" method="get">
 					  	<div class="mb-3 mt-3">
-					      <label for="ono_delete">삭제 주문번호</label>
+					      <label for="ono_delete" style="font-weight: bold;">삭제 주문번호</label>
 					      <input type="number" class="form-control" id="ono_delete" placeholder="수정할 주문번호를 입력하세요." name="ono">
 					    </div>
-					    <button type="submit" class="btn btn-primary" style="background-color: #e9734f;">주문취소하기</button>
+					    <button type="submit" class="btn btn-primary" style="background-color: #e9734f; font-weight: bold;">주문취소하기</button>
 					  </form>
 		        	<!--  -->
 		        	<!--  -->
