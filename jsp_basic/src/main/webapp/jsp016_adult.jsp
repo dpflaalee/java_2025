@@ -13,19 +13,10 @@
 </head>
 <body>
 	<div class = "container card my-5">
-		<h3 class ="card-header">WAS : 동적페이지</h3>
+		<h3 class ="card-header bg-danger text-white" >주류판매대상입니다.</h3>
+		<p class="alert alert-danger"><%=request.getParameter("userage")%>세 고객님을 위한 추천입니다.</p>
+		<p><a href="javascript:history.go(-1)" class="btn btn-danger">BACK</a></p>
 
 	</div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-

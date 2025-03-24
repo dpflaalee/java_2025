@@ -13,19 +13,21 @@
 </head>
 <body>
 	<div class = "container card my-5">
-		<h3 class ="card-header">WAS : 동적페이지</h3>
-
+		<h3 class ="card-header">단일선택</h3>
+		<%
+			String uName=request.getParameter("uName");
+			String color=request.getParameter("color");
+		%>
+	
+	<table class="table table-striped">
+		<caption>select 데이터 확인</caption>
+		<tr><th scope="row">USER</th>
+		<td><%=uName %></td></tr>
+		<tr><th scope="row">CHECK</th>
+		<td><div class="<%=color%> text-white p-5"><%=color %></div></td></tr>
+	
+	</table>
+	
 	</div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-

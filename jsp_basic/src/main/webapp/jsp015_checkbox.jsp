@@ -1,3 +1,4 @@
+<%@page import="java.util.Arrays"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -13,19 +14,22 @@
 </head>
 <body>
 	<div class = "container card my-5">
-		<h3 class ="card-header">WAS : 동적페이지</h3>
-
+		<h3 class ="card-header">다중선택</h3>
+		<%
+		//주소?username=sally&option1=dog&option1=cat
+		String username = request.getParameter("username");
+		String [] option1 = request.getParameterValues("option1");
+		%>
+		<table class = "table table-striped">
+		<caption>데이터 확인</caption>
+		<tbody>
+			<tr><th scope="row">USER</th><td><%= username %></td></tr>	
+			<tr><th scope="row">CHECK</th><td><%=Arrays.toString(option1) %></td></tr>		
+					
+		</tbody>
+		
+		</table>
+		
 	</div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-

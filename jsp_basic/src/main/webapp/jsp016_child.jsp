@@ -13,19 +13,10 @@
 </head>
 <body>
 	<div class = "container card my-5">
-		<h3 class ="card-header">WAS : 동적페이지</h3>
+		<h3 class ="card-header bg-success" >주류판매대상이 아닙니다.</h3>
+		<p class="alert alert-success">미성년자에게는 주류를 판매하지 않고 있습니다.</p>
+		<p><a href="javascript:history.go(-1)" class="btn btn-success">BACK</a></p>
 
 	</div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-

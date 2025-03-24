@@ -1,3 +1,4 @@
+<%@page import="java.util.Arrays"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -13,19 +14,16 @@
 </head>
 <body>
 	<div class = "container card my-5">
-		<h3 class ="card-header">WAS : 동적페이지</h3>
-
+		<h3 class ="card-header">radio</h3>
+	<%
+		String username2 = request.getParameter("username1");
+		String optradio = request.getParameter("optradio");
+	%>
+		
+		<table>
+			<tr><th scope="row">USER</th><td><%=username2 %></td></tr>
+			<tr><th scope="row">CHECK</th><td><%=optradio %></td></tr>
+		</table>
 	</div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
