@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang = "ko">
-<html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -13,22 +12,11 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
+	<div class="my-5"><%=session.getAttribute("userID") %></div>
+
 	<div class = "container card my-5">
 		<h3 class ="card-header">WAS : 동적페이지</h3>
-		<p>	
-			<%@page import="java.util.Calendar"%>
-			<% 	Calendar today = Calendar.getInstance(); //ctrl + space
-			   	String now = today.get( Calendar.HOUR_OF_DAY ) + ":" + 
-							today.get( Calendar.MINUTE ) + ":" +
-							today.get( Calendar.SECOND );
-				out.println(now);
-			%>
-		</p>
+
 	</div>
-	</body>
+</body>
 </html>
-	
-	
-	
-	
-	

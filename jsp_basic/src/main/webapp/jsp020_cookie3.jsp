@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang = "ko">
-<html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -14,21 +13,26 @@
 </head>
 <body>
 	<div class = "container card my-5">
-		<h3 class ="card-header">WAS : 동적페이지</h3>
-		<p>	
-			<%@page import="java.util.Calendar"%>
-			<% 	Calendar today = Calendar.getInstance(); //ctrl + space
-			   	String now = today.get( Calendar.HOUR_OF_DAY ) + ":" + 
-							today.get( Calendar.MINUTE ) + ":" +
-							today.get( Calendar.SECOND );
-				out.println(now);
-			%>
-		</p>
+		<h3 class ="card-header">쿠키 삭자</h3>
+		
+		<%
+			//1. 쿠키 값 확인
+			String cookie = request.getHeader("Cookie");
+			
+			//2. null 아니면 시간설정 0
+			if(cookie!=null){
+				Cookie[] cookies = request.getCookies();
+				for(Cookie c:cookies){
+					c.setMaxAge(0);
+					response.addCookie(c);
+					
+				}		
+			}
+				
+			response.sendRedirect("jsp020_cookie1.jsp");
+			
+		%>
+
 	</div>
-	</body>
+</body>
 </html>
-	
-	
-	
-	
-	

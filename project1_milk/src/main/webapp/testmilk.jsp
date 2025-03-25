@@ -151,16 +151,14 @@
 					    </div>
 					    <button type="submit" class="btn btn-primary" style="background-color: #e9734f; font-weight: bold;">주문하기</button>
 					  </form>
-					  <script>
-					  	function check() {
-					  		var name = document.getElementById("oname");
-					  		var num = document.getElementById("num");
-					  		
-					  		if(oname.value==null){alert("값을 입력하세요"); oname.focus(); return false;}
-					  		if(num.value==null){alert("값을 입력하세요"); num.focus(); return false;}
+					  <script>				  
+						function check(){
+							let oname = document.getElementById("oname");
+							let num = document.getElementBtId("num");
 							
+							if(oname.value==""){alert("값을 입력하세요"); oname.focus();return false;}
+							if(num.value==""){alert("값을 입력하세요"); oname.focus();return false;}
 						}
-					  
 					  </script>
 		        	<!--  -->
 		        </div>
