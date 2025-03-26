@@ -1,0 +1,158 @@
+■ 1. WEB 
+1. WEB
+ - TCP/IP 기반으로 연결되어 있는 컴퓨터 네트워크
+ - 클라이언트 ↔ 서버
+ - 1)  Web    프로그래밍 (Http 통신)   단방향통신 
+      ( Client요청시 Server응답 후종료)
+ - 2)  Socket 프로그래밍 (채팅)           양방향통신 
+      ( 특정port를 통해 실시간으로 정보를 주고 받음 - 계속연결되어 있음)
+
+2. WS vs WAS
+ - WS (Web Server) : 정적컨텐츠(html, css, js) 웹브라우저에 제공
+   ex) Apache
+ - WAS (Web Application Server) : 동적 컨텐츠
+   브라우저와 dbms 사이에서 동작하는 미들웨어
+   ex) Apache + tomcat
+
+3. Tomcat
+>> Http request(요청) > Catalina > Cintext > Servlet > Response
+
+3-1) http request
+3-2) Coyte 가 해결사 차지 : http 요청을 처리할 웹어플리케이션(context) 
+                                   web.xml 파일 내용을 참고해서 요청전달.
+3-3) Catalina (Servlet) : 해결사 해결 당하면 제스퍼가 응답. . .
+3-4) Jasper (JSP Engine) : java + html 페이지 요청처리 응답(response)
+
+
+■ 2. JSP
+1. 기본요소
+- HTML+JAVA
+
+스크립트립 <% %> 자바코드
+지시자 <% @ %>
+주석 <%-- -- 8%>;
+표현 <%= %> 출력
+선언 <!% %>
+
+
+2. FORM
+서버로 정보전달
+action ="요청처리" get/post
+method ="요청처리방식"
+name ="데이터보관이름"
+
+3.쿼리스트링
+https://www.google.com/serch?q=apple&name=sally
+
+- url뒤에 입력데이터를 함께 제공하는 데이터 전달방법
+- get 방식
+
+ - 클라이언트[#] ↔ 서버
+
+4. request.getParameter("name값")
+ - 클라이언트 ↔ 서버[#]
+request.getParameter("q")
+
+
+
+
+
+		<%Connection conn=null;
+			try{
+				Class.forName("com.mysql.cj.jdbc.Driver");
+				conn=DriverManager.getConnection(
+						"jdbc:mysql://localhost:3306/mbasic", "root", "1234");
+				if(conn!=null){out.println("db연동선공");}
+			}	catch(Exception e){e.printStackTrace();}	
+		%>
+
+
+■ 3. 내장객체
+1. request(요청)
+ - request.getParameter("name"); 값한개
+ - request.getParameterValues("name"); 값여러개 - checkbox
+
+2. response
+ - response.sendRedirect("처리경로"); 
+	response/request 유지안됨
+	같은 처리에서 alert 출력안됨
+ - ※location.href / meta http-equive='refresh' content='초; url=경로'
+
+ request.getRequestDispatcher("jsp022_my.jsp").forward(request, response);
+	요청/응답 위임
+	response/request 유지됨
+
+3. scope 범위
+[애플리케이션 > 브라우저 session > 요청 request  > 페이지 pageContext]
+
+4. session
+ - http 프로토콜(데이터 요청 - 응답을 받게 되면 바로 종료) >(보완) > session
+ - 서버측에 저장되는 정보
+ -보안
+
+5. cookie
+ - 클라이언트 측에저장
+ - 보안취약
+
+6. error
+
+
+■ 4. mvc1 vs mvc2
+1. MVC
+ - 서로 영향없이 쉽게 고칠 수 있는 애프리케이션
+
+ - M model : 애플리케이션의 정보(db정보, dto,dao 비지닉스 login 포함)
+ - V view :  사용자가 사용하는 화면
+ - C controller : model view 사이의 상호작용 관리
+
+2. mvc1 vs mvc2
+ - mvc1 - controller 역할을 jsp가 담당
+ - mvc2 - controller  역할을 servlet 담당
+
+■ 5. dbcp
+1. database connection pool
+ - 분산 은용 프로그램
+
+2. 실습
+
+ 1) 다운로드 - https://apache.org/ > commons - dbcp, pool, collection
+ 2) [WEB-IBF] - [lib] JAR
+ 3) DBCP - JAVA 파일 만들기
+https://tomcat.apache.org/
+
+■ server.xml
+
+<Context>
+
+<Resource name="jdbc/mbasic" auth="Container"
+	type="javax.sql.DataSource" 
+	maxTotal="100" maxIdle="30" maxWaitMillis="10000"
+	username="root" password="1234"
+	driverClassName="com.mysql.cj.jdbc.Driver"
+	url="jdbc:mysql://localhost:3306/mbasic"    />
+</Context>
+
+■ web.xml
+  <resource-ref>
+      <description>DB Connection</description>
+      <res-ref-name>jdbc/mbasic</res-ref-name>
+      <res-type>javax.sql.DataSource</res-type>
+      <res-auth>Container</res-auth>
+  </resource-ref>
+
+■ DBCP 연동
+Context initContext = new InitialContext();
+Context envContext  = (Context)initContext.lookup("java:/comp/env");
+DataSource ds = (DataSource)envContext.lookup("jdbc/myoracle");
+Connection conn = ds.getConnection();
+
+
+
+
+
+
+
+
+
+
+

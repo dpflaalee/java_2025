@@ -25,8 +25,10 @@
 		if(rset.next()){result=rset.getInt("count(*)");}
 		
 		if(result==1){
-			request.getRequestDispatcher("jsp022_my.jsp").forward(request, response);
+			//request.getRequestDispatcher("jsp022_my.jsp").forward(request, response);
+			out.println("<script>location.href='jsp002_my.jsp';</script>"); //바로경로넘기기
 			session.setAttribute("userID", userID);
+			
 		}else{out.println("<script>alert('정보를 확인해주세요'); history.go(-1);</script>");}
 	//결과확인
 	}catch(Exception e){e.printStackTrace();}

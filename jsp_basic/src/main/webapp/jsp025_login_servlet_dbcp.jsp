@@ -3,9 +3,9 @@
 <%@ include file="jsp022_header.jsp" %>
 
 	<div class = "container card my-5">
-		<h3 class ="card-header">LOGIN</h3>
+		<h3 class ="card-header">JOIN-회원가입</h3>
 		<p style="text-align: center;" class="my-5"><img src="img/login.png" alt="login" ></p>
-		<form action="jsp022_login_action.jsp" method="post" onsubmit="return login()">
+		<form action="<%=request.getContextPath()%>/user_join" method="post" onsubmit="return login()">
 		  <div class="mb-3 mt-3">
 		    <label for="userID" class="form-label">ID:</label>
 		    <input type="text" class="form-control" id="userID" placeholder="Enter ID" name="userID">

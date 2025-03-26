@@ -1,3 +1,5 @@
+<%@page import="javax.sql.*"%>
+<%@page import="javax.naming.*"%>
 <%@page import="java.sql.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -13,6 +15,13 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
+<%
+//Context initContext = new InitialContext();
+//Context envContext  = (Context)initContext.lookup("java:/comp/env");
+//DataSource ds = (DataSource)envContext.lookup("jdbc/myoracle");
+//Connection conn = ds.getConnection();
+//if(conn!=null){out.println("DB연동 선공");}
+%>
 	<div class="p-5 bg-light rounded ">
 	  <h1>Milk Order</h1>
 	  <p>PreparedStatement Ex</p>
