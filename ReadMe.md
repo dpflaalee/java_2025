@@ -1,3 +1,10 @@
+### 24. 2025-03-25
+1. select-subqurey
+2. jsp - error, cookie, session
+3. 로그인 페이지 구현(미완)
+
+---
+
 ### 23. 2025-03-24
 1. select-join 기본 사용법과 예제 풀이
 2. JSP - 내장객체 request, response
