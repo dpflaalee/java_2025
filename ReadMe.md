@@ -1,8 +1,16 @@
+### 27. 2025-03-28
+1. Front Controller 이용한 board 기능 구현
+2. el/jstl을 이용한 출력
+3. Naver Api 연결하여 BookStore 불러오기
+4. **추가작업 : css적용하여 화면 정리, admin만 글쓰기 가능(session)**
+
+---
+
 ### 26. 2025-03-27
 1. 서버오류... 서버 자체가 이상해서 + server.xml 설정이 약간 삐끗나서 + 이클립스가 알아서 못읽어서 일어난 참사였음
    project-bild automatically 설정을 하면 좀 덜한거 같음 + 빌드패스 재설정
 2. DBCP를 이용하여 게시판 페이지 만들기(미완) 
-3. front controller servlet 파일 작성
+3. Front Controller servlet 파일 작성
 
 ---
 
