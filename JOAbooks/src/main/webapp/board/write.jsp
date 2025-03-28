@@ -6,28 +6,37 @@
 	<div class = "container card my-5">
 		<h3 class ="card-header">글쓰기</h3>
 	</div>
-	
-	<div>
-		<form action="/action_page.php">
-		
-			<div class="mb-3 mt-3">
-				<label for="bname">작성자:</label>
-				<input type="text" class="form-control" id="bname" placeholder="사용자 이름을 작성해주세요" name="bname">
-			</div>
-			<div class="mb-3">
-				<label for="btitle">제목:</label>
-				<input type="text" class="form-control" id="btitle" placeholder="글의 제목을 입력해주세요" name="btitle">
-			</div>
-			<div class="mb-3 mt-3">
-				<label for="bcontent">내용:</label>
-				<textarea class="form-control" rows="5" id="bcontent" name="bcontent"></textarea>
-			</div>
-			
-			<button type="submit" class="btn btn-primary">Submit</button>
-		</form>
+	<div class = "container card my-5">
+		<form action="write.do" method="post"  id="writeForm"   onsubmit="return  form()">
+			<div class="my-3">
+			  <label for="bname" class="form-label" >이름</label>
+			  <input type="text"   name="bname"   id="bname"   class="form-control" > 
+			</div>																	
+			<div class="my-3">
+			  <label for="btitle" class="form-label"  >제목</label>
+			  <input type="text"   name="btitle"   id="btitle"   class="form-control" > 
+			</div>	
+			<div class="my-3">
+			  <label for="bcontent" class="form-label"  >내용</label>
+			  <textarea name="bcontent"  id="bcontent"  cols="60"  rows="10"   class="form-control" ></textarea>
+			</div>				
+			<div class="my-3  text-end">
+				<input type="submit"   value="입력"  class="btn btn-primary btn-block"    >  
+				<input type="reset"    value="취소"  class="btn btn-outline-primary btn-block"    >  
+				<a href="list.do"   class="btn btn-outline-primary btn-block"   >목록보기</a>
+			</div>	
+		</form> <!-- end form -->	
 	</div>
-	<%
-	/* 빈칸검사 */
-	%>
+	<script>
+	function form(){  
+		let bname = document.getElementById("bname");
+		let btitle = document.getElementById("btitle");
+		let bcontent = document.getElementById("bcontent");
+	
+		if(bname.value ==""){alert("빈칸입니다");   bname.focus();  return false; }
+		if(btitle.value ==""){alert("빈칸입니다");   btitle.focus();  return false; }
+		if(bcontent.value ==""){alert("빈칸입니다");   bcontent.focus();  return false; }
+	}
+	</script>
 	
 <%@ include file="../inc/footer.jsp"%>

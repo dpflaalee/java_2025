@@ -96,14 +96,14 @@
 		//System.out.println(dao.select(1));
 		
 		//2. insert
-/*  		BoardVO vo = new BoardVO();
+/*   		BoardVO vo = new BoardVO();
 		vo.setBtitle("first title");
 		vo.setBcontent("first content");
 		vo.setBname("first name");
-		System.out.println(dao.insert(vo));  */
+		System.out.println(dao.insert(vo));   */
 		
 		//1. select All
-		//System.out.println(dao.selectAll());
+		System.out.println(dao.selectAll());
 		%>
 	
 	</div>
