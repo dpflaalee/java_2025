@@ -2,7 +2,7 @@
 1. Front Controller 이용한 board 기능 구현
 2. el/jstl을 이용한 출력
 3. Naver Api 연결하여 BookStore 불러오기
-4. **추가작업 : css적용하여 화면 정리, admin만 글쓰기 가능(session)**
+4. **추가 작업 : css적용하여 화면 정리, admin만 글쓰기 가능(session)**
 
 ---
 
