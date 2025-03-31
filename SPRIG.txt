@@ -1,0 +1,105 @@
+■1. SPRING
+
+
+-------------------------------------
+#1. SPRING?
+-------------------------------------
+▶STEP 0. jsp
+1. mvc1 - jsp가 controller 역할
+2. mvc2 - servlet이 controller 역할
+3. FrontController
+
+▶STEP 1. framework
+1. framework [ 디자인패턴 + 라이브러리 = 프레임워크 ]
+2. 소프트웨어 개발의 뼈대역할
+
+▶STEP 2. ioc + di
+★1. ioc : inversion of control :: 제어의 역전
+ - 인스턴스의 생성~소멸까지 생명주기를 개발자가 아니라 컨테이너(spring)가 하는 것
+ - pojo ( plain old java object )
+
+ class A{}
+ A a1 = new A()
+
+ 생성 → 초기화 → 서비스 → 소멸
+  ↑                                 ↓
+..........................................................................................
+ ioc 가 아닌경우 - [ 개발자 → (class A)
+		         →  (class B) ]
+
+ ioc의 경우 [ 개발자 ← (Class A)
+                          ← (Class B) ] ★ 컨테이너
+
+따라서... new 코드 사용 안함
+..........................................................................................
+
+2. di : dependency injection :: 의존성 주입
+ - 각 클래스간의 의존관계를 [설정파일]을 통해서 [컨테이너]가 자동으로 연결
+ - 장점 : 코드 단순화 / 결합도 제거
+
+
+----------------------------------------------------
+    1. dynamic web project - spring000
+    2. configure  - [Convert to Maven Project]
+
+
+    3. spring      - add Spring project Nature
+    4. java se-11 / project facts, build path
+
+실습3 spring mvc
+---------------------------
+1. 검색-spring
+2. legacy project
+3. mvc project
+
+※ 플러그인
+ \.metadata\.plugins\org.springsource.ide.eclipse.commons.content.core
+
+※ import해서 완성된 파일 가져오기
+
+=====================================================
+Spring 정리
+=====================================================
+1. 프레임워크 
+ - 소프트웨어의 개발의 뼈대역할 디자인패턴+라이브러리
+2. ioc
+ - 인스턴스의 생성부터 소멸까지 생명주기를 spring이 관리
+3. di
+ - 각 클래스의 의존관계를 설정파일을 통해 컨테이너가 자동으로 연결
+4. bean
+ - 스프링이 관리하는 객체
+ -beanFactory ← ApplicationContext
+
+
+=====================================================
+#3. Bean
+=====================================================
+▶ BEAN?
+1. bean Spring이 관리하는 객체
+2. xml vs Annotation
+
+ 2-1. xml - [운영]
+ - 모든 bean을 "명시적"으로 xml에 등록
+ - 관리/배포 용도
+ - 여러 개발자가 같은 설정파일을 공유해서 개발하면 수정 시 충돌이 일어날 경우가 많음.
+
+ 2-2. Annotation (Bean Scanning) [개발]
+ - Bean @를 붙여서 자동인식
+ - 개발 속도 향상
+ - 단점 : Bean간의 의존관계를 파악하기 힘듦
+
+▶2. @Component
+1. @Component 일반적인 컴포넌트(객체) 
+2. @Component 구체화된 형식 
+         @Controller(웹 요청받아 응답), @Service(비즈니스 로직), @Repository(DB연동)
+
+<context:component-scan base-package="경로" />
+
+
+
+
+
+
+
+
+

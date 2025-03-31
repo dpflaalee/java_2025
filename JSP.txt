@@ -146,9 +146,37 @@ Context envContext  = (Context)initContext.lookup("java:/comp/env");
 DataSource ds = (DataSource)envContext.lookup("jdbc/myoracle");
 Connection conn = ds.getConnection();
 
+■ PART 005 필요기능
+
+1. el/jstl
+>el
+ - 표현식 (출력)
+ - <%= %>
+ - ${}
+
+>jstl ( JavaServer page Standard Tag Library )
+ :: 자바코드 대신 태그로 웹페이지 작성
+ - <%= if() %> :: before
+ - <c:if test=?</c:if> / <c:forEach items="" var=""></c:forEach>
+
+-1.  반복문, 조건문 등의 기본구현
+-2.  사용법
+ 1. http://jakarta.apache.org/
+ 2. 왼쪽메뉴 :  Tablibs
+ 3. Standard Taglib -  다운로드 - jakarta-taglibs-standard-1.1.1.zip
+ 4. [WEB-INF]-[lib] - jstl.jar / standard.jar
+<%@taglib  prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
+
+-3. jstl 라이브러리
+  core : 기본적인 기능제공
+  fmt  : format 형식
+  xml  : xml관련처리
+  sql  : sql관련처리
 
 
+2. admin만 글쓰기(session 정리)
 
+3.
 
 
 
