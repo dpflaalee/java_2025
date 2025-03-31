@@ -1,3 +1,10 @@
+### 28. 2025-03-31
+1. Spring 기초 개념과 원리
+2. Spring 개발환경 구축 및 구조파악
+3. ioc, di, bean 기본 사용방법
+
+---
+
 ### 27. 2025-03-28
 1. Front Controller 이용한 board 기능 구현
 2. el/jstl을 이용한 출력
