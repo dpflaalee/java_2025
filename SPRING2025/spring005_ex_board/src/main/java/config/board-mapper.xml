@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+     "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.dao.BoardDao">
+
+	<insert id="insert" parameterType="BoardDto">
+		insert into board (btitle, bcontent, bname, bip) value (#{btitle}, #{bcontent}, #{bname}, #{bip})	
+	</insert>
+	
+	<update id="update" parameterType="BoardDto">
+		update board set btitle=#{btitle}, bcontent=#{bcontent} where bno=#{bno}
+	</update>
+	
+	<update id="updateHit" parameterType="BoardDto">
+		update board set bhit=bhit+1 where bno=#{bno}
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		delete form board where bno=#{bno}
+	</delete>
+	
+	<select resultType="BoardDto" id="selectAll">
+		select*from board	
+	</select>
+	
+	<select resultType="BoardDto" id="selectOne" parameterType="int">
+		select*from board where bno=#{bno}
+	</select>
+
+</mapper>
+
+<!-- 
+select*from board
+select*from board where bno=?
+insert into board (btitle, bcontent, bname) value (?, ?, ?)
+update board set btitle=?, bcontent=?, bname=? where bno=?
+delete form board where bno=?
+ -->

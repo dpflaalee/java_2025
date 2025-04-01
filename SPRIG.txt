@@ -95,6 +95,76 @@ Spring 정리
 
 <context:component-scan base-package="경로" />
 
+=====================================================
+#4. DB(jdbc)/MYBATIS
+=====================================================
+▶ 1. DataSource
+SimpleDriverDataSource 가장 단순버전
+ - getConnection() 매번생성 
+
+ - mysql-connector-java / spring-jdbc
+
+▶ 2. Mybatis ( sql )
+1. sql 별도로 파일분리하여 관리
+2. ORM ( object realtional mapping ) 프레임워크
+
+3. mybatis
+=========================
+1. SqlSessionFactoryBean
+
+2. SqlSessionFactory → <<SqlSession>> → mapper.xml 
+			:: insert update delete select 처리
+
+※SqlSessionFactory SqlSession 생성관리
+※SqlSession : sql실행, 트랜잭션
+=========================
+
+4. 실습
+mybatis 다운로드
+mybatis-spring
+   <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+   <dependency>
+       <groupId>org.mybatis</groupId>
+       <artifactId>mybatis</artifactId>
+       <version>3.5.6</version>
+   </dependency>
+   <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
+   <dependency>
+       <groupId>org.mybatis</groupId>
+       <artifactId>mybatis-spring</artifactId>
+       <version>2.0.6</version>
+   </dependency>
+
+#설정파일
+   ## mapper 설정파일(1)
+   [Preferences] - [Xml] - Templates - New - New XML
+   <?xml version="1.0" encoding="UTF-8" ?>
+   <!DOCTYPE mapper
+     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+     "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   <mapper namespace="org.mybatis.example.BlogMapper">
+   </mapper>
+   
+   ## mapper 설정파일(2)  
+   [Preferences] - [Xml] - Templates - New - New XML
+   <?xml version="1.0" encoding="UTF-8" ?>
+   <!DOCTYPE configuration
+     PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+     "https://mybatis.org/dtd/mybatis-3-config.dtd">
+   <configuration>
+   </configuration>
+
+Dto(UserDto)
+com.company.dto UserDto
+private int no
+private String name
+private int age
+
+생성자 tpString getter/setter
+
+Dao (UserDao UserDaolmpl user-mapper.xml
+
+
 
 
 
