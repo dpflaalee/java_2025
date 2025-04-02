@@ -164,12 +164,72 @@ private int age
 
 Dao (UserDao UserDaolmpl user-mapper.xml
 
+==========================================================================
+#5. DB/MYBATIS(2)
+==========================================================================
+▶ mybatis --version 1
+-  TestDao Impl mapper.xml 파일양 줄이고싶음
+-  SqlSession sqlSession , namespace="com.company.dao.TestDao" 코드안에 있어서 불편, 설정파일설정
+
+TestDao <<interface>>
+         ↑
+TestDaoImpl <class>
+---------------------------------------------------------------------------------
+@Repository
+public class TestDaoImpl implements TestDao{
+	@Autowired  private SqlSession sqlSession;  //sql 실행
+	private static final String namespace="com.company.dao.TestDao";
+---------------------------------------------------------------------------------
+test-mapper.xml
+
+▶ mybatis --version 2
+-  root-context에 설정파일을 넣자
+
+	@Autowired  private SqlSession sqlSession;  //sql 실행
+	private static final String namespace="com.company.dao.TestDao";
+	↓
+	<bean id = "" class = "MapperFactoryBean">
+	↓
+	Impl 구현클래스 삭제, root-context 수정
+	↓
+	<bean id="testDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="sqlSessionTemplate" ref="sqlSession"></property>
+		<property name="mapperInterface" value="com.company.dao.TestDao"/>
+	</bean>
 
 
+com.company.dao.BoardDao
 
+com.company.dao.BoardDao
 
+▶ mybatis --version 3
+-  MapperScannerConfigurer
 
+==========================================================================
+#6. mvc Project
+==========================================================================
+▶ 1.mvc
+>>서로 영향없이 고칠 수 있는 애플리케이션을 만들자
+Model		정보 dto, dao, service
+View		화면 html, css, js/jquery
+Controller	처리
 
+▶ mvc1 vs mvc2
+mvc1 controller > jsp
+mvc2 controller > servlet
+FrontController > 공통작업수행 > 세부컨트롤러에게 View 처리
 
-
+▶ 3. spring mvc
+[클라이언트]
+↓ ① list.do
+[ FrontController ]
+<< DispatcherServlet >> → ② HandlerMapping - @Controller
+                                       ↓ 
+                                   ③ 세부 Controller - db가 db 처리
+                                       ↓ ↑
+                                   ④ View
+① 클라이언트 ( 코요테 web.xml root-context.xml / servet-context.xml )
+② DispatcherServlet  - HandlerMapping - @Controller / 처리할 controller 확인
+③ 세부 Controller 클라이언트 요청처리 ( service 비즈니스로직 )
+④ 요청결과와 View정보를 DispatcherServlet에 반환 / View 개체를 생성해서 응답
 
