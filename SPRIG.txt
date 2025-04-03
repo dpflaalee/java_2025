@@ -233,3 +233,56 @@ FrontController > 공통작업수행 > 세부컨트롤러에게 View 처리
 ③ 세부 Controller 클라이언트 요청처리 ( service 비즈니스로직 )
 ④ 요청결과와 View정보를 DispatcherServlet에 반환 / View 개체를 생성해서 응답
 
+
+==========================================================================
+#7. 유용한 기능들
+==========================================================================
+1. jstl
+   1) pom.xml
+      <!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+      <dependency>
+         <groupId>javax.servlet</groupId>
+         <artifactId>jstl</artifactId>
+         <version>1.2</version>
+      </dependency>
+
+   2) Model
+      -table
+      -dto UserDto / mapper-config.xml
+      -dao UserDao / user-mapper.xml / root-context.xml (등록)
+      -
+
+
+2. dto → lombok
+3. aop (관점지향) 
+4. HikariCP --> mybatis 업그레이드 dbcp / sql과정 다 보이게
+5. Tx sql --> 여러 개 실행될 시 중간에 실패하면 sql 다 처리 안되게
+
+
+
+
+
+
+
+
+
+==========================================================================
+#8. restful
+==========================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -2,8 +2,8 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>spring011_ex_board_MvcController</groupId>
-	<artifactId>spring011_ex_board_MvcController</artifactId>
+	<groupId>spring012_useful</groupId>
+	<artifactId>spring012_useful</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
@@ -67,13 +67,15 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>3.2.17.RELEASE</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
-		<!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>jstl</artifactId>
-			<version>1.2</version>
-		</dependency>
+
+        <!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+      <dependency>
+         <groupId>javax.servlet</groupId>
+         <artifactId>jstl</artifactId>
+         <version>1.2</version>
+      </dependency>
+ 
+
 
 	</dependencies>
 

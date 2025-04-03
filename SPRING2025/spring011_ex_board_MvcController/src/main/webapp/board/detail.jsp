@@ -6,25 +6,25 @@
 	<h3>MULTIBOARD 상세보기</h3>
 	<div class="my-3 ">
 		<div class="">
-			<span><i class="bi bi-book-half"></i> 조회수</span>
+			<span><i class="bi bi-book-half"></i> ${dto.bhit}</span>
 			<p></p>
 		</div>
 	</div>
 	<div class="my-3">
 		<div class="">
-			<span><i class="bi bi-book-half"></i> 이름</span>
+			<span><i class="bi bi-book-half"></i> ${dto.bname}</span>
 			<p></p>
 		</div>
 	</div>
 	<div class="my-3">
 		<div class="">
-			<span><i class="bi bi-book-half"></i> 제목</span>
+			<span><i class="bi bi-book-half"></i> ${dto.btitle}</span>
 			<p></p>
 		</div>
 	</div>
 	<div class="my-3">
 		<div class="">
-			<span><i class="bi bi-book-half"></i> 내용</span>
+			<span><i class="bi bi-book-half"></i> ${dto.bcontent}</span>
 			<p></p>
 		</div>
 	</div>
