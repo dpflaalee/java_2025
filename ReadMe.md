@@ -1,3 +1,10 @@
+### 30. 2025-04-02
+1. Spring - mybatis - MapperFactoryBean 이용하여 파일량 줄이기
+2. Spring - mybatis - MapperScannerConfigurer 이용하여 설정 용이하게 하기
+3. Spring MVC Controller 만들어 적용하기
+
+---
+
 ### 29. 2025-04-01
 1. Spring 데이터베이스(jdbc) 연결
 
