@@ -237,7 +237,7 @@ FrontController > 공통작업수행 > 세부컨트롤러에게 View 처리
 ==========================================================================
 #7. 유용한 기능들
 ==========================================================================
-1. jstl
+▶ 1. jstl
    1) pom.xml
       <!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
       <dependency>
@@ -250,19 +250,97 @@ FrontController > 공통작업수행 > 세부컨트롤러에게 View 처리
       -table
       -dto UserDto / mapper-config.xml
       -dao UserDao / user-mapper.xml / root-context.xml (등록)
-      -
+
+   3) @Repository -Dao (sql 실행)
+      - Service (비즈니스 로직 처리)
+      - 상세보기 조회수올리는 sql 해당번호 상세보기 데이터
 
 
-2. dto → lombok
-3. aop (관점지향) 
-4. HikariCP --> mybatis 업그레이드 dbcp / sql과정 다 보이게
-5. Tx sql --> 여러 개 실행될 시 중간에 실패하면 sql 다 처리 안되게
+▶ 2. dto → lombok
+    0. https://mvnrepository.com/artifact/org.projectlombok/lombok
+lombok 1.18.18
+
+<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+<dependency>
+    <groupId>org.projectlombok</groupId>
+    <artifactId>lombok</artifactId>
+    <version>1.18.18</version>
+    <scope>provided</scope>
+</dependency>
 
 
+    1. https://projectlombok.org/download
+    2. 다운로드
+    3. 더블클릭 /   cmd창     java  -jar    파일이름.jar
+        설치경로 설정
+    4. spring 다시 열기
 
+    ※ 만약 인식이 안되면....
+      1. C드라이브로 스프링zip. 옮기기 - 압축풀기
+      2. 경로 짧게
 
+▶ 3. aop (관점지향) 
+1) 핵심기능 vs 부가기능 
+  - 핵심기능 : 비즈니스로직
+  - 부가기능 : 비즈니스로직을 도움
 
+2) Aspect
+  - AOP (Aspect Oriented Prograamming
+  - Aspect : 관점, 어떤행동, 시작, 완료 반복... 나타내는 행위
+  - Advice (부가기능정의) + PointCut(적용부위) = Aspect 
 
+3) 용어
+Target : (대상)
+Advice : (부가기능정의)
+PopintCut : 적용타겟에 메서드 대상을 선별하는 정규식
+Weaving : Target(대상)에 Advice(부가기능)을 처리(삽입)하는 과정
+
+4) 특징
+프록시(대리) 기반의 Aop
+프록시 Target(대상)에 Advice(부가기능)을 처리(삽입)하는 과정 과정에서 생성되는 객체
+
+▶ 4. HikariCP --> mybatis 업그레이드 dbcp-HikariCP / sql과정-log4jdbc 다 보이게
+1) pom.xml 플러그인 추가
+      <!-- HikariCP -->
+      <!-- HikariCP -->
+      <!-- https://mvnrepository.com/artifact/com.zaxxer/HikariCP -->
+      <dependency>
+          <groupId>com.zaxxer</groupId>
+          <artifactId>HikariCP</artifactId>
+          <version>2.7.4</version>
+      </dependency>
+         
+      <!-- https://mvnrepository.com/artifact/org.bgee.log4jdbc-log4j2/log4jdbc-log4j2-jdbc4 -->
+      <dependency>
+          <groupId>org.bgee.log4jdbc-log4j2</groupId>
+          <artifactId>log4jdbc-log4j2-jdbc4</artifactId>
+          <version>1.16</version>
+      </dependency>
+      <!-- HikariCP -->
+      <!-- HikariCP -->
+      <!-- HikariCP --> 
+
+2) db.properties / root-context.xml
+3) hikari properties 설정
+
+▶ 5. Tx sql --> 여러 개 실행될 시 중간에 실패하면 sql 다 처리 안되게
+ - 트랜잭션
+ - 여러단계의 처리를 하나의 처리처럼 다루는 기능
+ - 반영(commit) / 되돌리기(rollback)
+
+1) pom.xml
+		<!-- spirng-tx start -->
+		<!-- spirng-tx start -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<!-- spirng-tx end -->
+		<!-- spirng-tx end -->
+2) root-context.xml
+ - DataSourceTransactionManager
+ - <tx:annotion-driven>
 
 
 

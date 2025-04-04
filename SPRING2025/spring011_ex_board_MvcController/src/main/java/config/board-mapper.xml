@@ -21,7 +21,7 @@
 	</delete>
 	
 	<select resultType="BoardDto" id="selectAll">
-		select*from board	
+		select*from board order by bno desc
 	</select>
 	
 	<select resultType="BoardDto" id="selectOne" parameterType="int">

@@ -4,23 +4,23 @@
 
 <div class="container card  my-5   p-3">
 	<h3>MULTIBOARD - 수정하기 </h3>
-	<form action="#" method="post"  id="writeForm"   onsubmit="return  form()">
+	<form action="${pageContext.request.contextPath}/board/edit?bon=${dto.bno}" method="post"  id="editForm"   onsubmit="return  form()">
 		<div class="my-3">
 		  <label for="bname" class="form-label" >이름</label>
-		  <input type="text"   name="bname"   id="bname"   class="form-control" > 
+		  <input type="text"   name="bname"   id="bname"   class="form-control" value="${dto.bname}" readonly> 
 		</div>																	
 		<div class="my-3">
 		  <label for="btitle" class="form-label"  >제목</label>
-		  <input type="text"   name="btitle"   id="btitle"   class="form-control" > 
+		  <input type="text"   name="btitle"   id="btitle"   class="form-control" value="${dto.btitle}"> 
 		</div>	
 		<div class="my-3">
 		  <label for="bcontent" class="form-label"  >내용</label>
-		  <textarea name="bcontent"  id="bcontent"  cols="60"  rows="10"   class="form-control" ></textarea>
+		  <textarea name="bcontent"  id="bcontent"  cols="60"  rows="10"   class="form-control" >${dto.bcontent}</textarea>
 		</div>				
 		<div class="my-3  text-end">
 			<input type="submit"   value="입력"  class="btn btn-primary btn-block"    >  
 			<input type="reset"    value="취소"  class="btn btn-outline-primary btn-block"    >  
-			<a href="list.jsp"   class="btn btn-outline-primary btn-block"   >목록보기</a>
+			<a href="${pageContext.request.contextPath}/board/list"   class="btn btn-outline-primary btn-block"   >목록보기</a>
 		</div>	
 	</form> <!-- end form -->	
 	<script>

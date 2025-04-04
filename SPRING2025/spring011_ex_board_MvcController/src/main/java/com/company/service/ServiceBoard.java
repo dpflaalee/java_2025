@@ -10,7 +10,7 @@ public interface ServiceBoard {
 	public int   insert(BoardDto dto);  // 글쓰기기능
 	
 	public int   update(BoardDto dto);  // 수정기능 (해당글번호보기)
-	public int   updateForm(int bno);   // 해당번호 글수정 폼
+	public BoardDto   updateForm(int bno);   // 해당번호 글수정 폼
 	
 	public int       delete(BoardDto dto);  // 글 삭제기능
 	
