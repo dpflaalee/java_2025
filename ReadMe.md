@@ -1,3 +1,8 @@
+### 31. 2025-04-03
+1. Spring jstl
+
+---
+
 ### 30. 2025-04-02
 1. Spring - mybatis - MapperFactoryBean 이용하여 파일량 줄이기
 2. Spring - mybatis - MapperScannerConfigurer 이용하여 설정 용이하게 하기
