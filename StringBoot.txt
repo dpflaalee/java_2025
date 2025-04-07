@@ -1,0 +1,41 @@
+■ STEP 1. project
+  - enc UFT-8 --> workspace / css / html / jsp / xml
+  - project
+	spring starter project -> type : maven
+	::Depeendencies
+	DevTools , Lombok , H2 Database , Spring Data JPA , Mysql Driver , Thymeleaf , Spring web
+	::2 버전체크
+	pom.xml -> spring boot starter parent 2.7.14 ver // java.version 11
+	bildpath 설정 후 프로젝트 업데이트
+	::3 실행
+	Spring boot app 서버로 실행 서버는 하나 끝나면 종료하고 실행해야 오류없이 실행됨
+
+	연습 ) boot002 project 만들기
+
+■ STEP 2. setting ( properties )
+	jpa
+	1) application.properties
+	2) @Entitiy DTO/테이블만들기
+	3) @Repasitory - DAO
+
+■ STEP 3. db
+
+■ STEP 4. view
+1. pom.xml 세팅확인 >> thymeleaf
+<dependency>
+<groupId>org.springframework.boot</groupId>
+<artifactId>spring-boot-starter-thymeleaf</artifactId>
+</dependency>
+<!--  https://mvnrepository.com/artifact/nz.net.ultraq.thymeleaf/thymeleaf-layout-dialect  -->
+<!--  추가  -->
+<dependency>
+<groupId>nz.net.ultraq.thymeleaf</groupId>
+<artifactId>thymeleaf-layout-dialect</artifactId>
+</dependency>
+<!--  추가  -->
+2. application.properties 설정확인
+3. layout
+4. 화면설정
+
+■ STEP 5. board
+■ STEP 6. security
