@@ -1,3 +1,11 @@
+### 33. 2025-04-07
+1. Spring Boot 기본 세팅 및 구조 파악
+2. JDBC 연동
+3. JPA 설정, 외래키 설정
+4. view 페이지 설정
+
+---
+
 ### 32. 2025-04-04
 1. lombok으로 dto 대체해보기
    롬북 자체 오류났을때... 추가설정하는거 한 번 더 체크해보기 --> --add-opens=java.base/java.lang=ALL-UNNAMED
