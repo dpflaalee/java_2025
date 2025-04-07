@@ -1,3 +1,12 @@
+### 32. 2025-04-04
+1. lombok으로 dto 대체해보기
+   롬북 자체 오류났을때... 추가설정하는거 한 번 더 체크해보기 --> --add-opens=java.base/java.lang=ALL-UNNAMED
+3. aop 설정해보기
+4. HikariCP로 dbcp/sql 과정 보이게
+5. Tx sql 설정
+
+---
+
 ### 31. 2025-04-03
 1. Spring jstl
 
