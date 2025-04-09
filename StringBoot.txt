@@ -38,4 +38,57 @@
 4. 화면설정
 
 ■ STEP 5. board
+#1. id / pass가 같으면 delete 해주기
+
+#2. id / pass 같으면 btitle bcontent 수정
+
+#3. 글검색부분은 작성자 및 글제목으로 가능하게(도전)
+select  distinct b  
+from Board b  left  join   Member m  on  b.member = m
+where    b.title       like  %:key%  
+       or  b.content  like  %:key%  
+       or  m.name    like  %:key%  
+
 ■ STEP 6. security
+1. spring security?
+1) 애플리케이션의 보안(인증,인가) 담당
+2) filter의 흐름에 따라 처리
+
+2. 인증 vs 인가
+1) 인증 - 본인이 맞는지 확인           ex) 여권-본인이 맞는지 인증
+2) 인가 - 인증된 사용자가 접근가능   ex) 탑승 o 조종석까지 가기 x --> 접근권한
+
+3. 아키텍쳐
+1) 사용자가 로그인폼에서 로그인 시도 (username+password 전달)
+2) UsernamePasswordAuthentication 요청정보 - Authentication 생성
+3) Authentication 인증처리
+
+10) 인증완료(사용자정보) SecurityContextHolder에 담기
+ - AuthenticationSuccessHandler 성공!
+ - AuthenticationSuccessHandler 실패!
+
+3) 아키텍쳐2
+ 4) Authentication Manager 인증담당
+    -UsernamePasswordAuthentication Token은 Provider 찾는데사용
+5) AuthenticationProvider  - 로그인정보와 db정보를 비교
+6) UserDetailService  - db에 있는 사용자 정보 가져오기
+
+----실습
+spring project            pom.xml :: 프로젝트 작성할 때 spring security 추가 버전 5로 수정
+localhost:8080/login    로그인창 ->인증(본인확인)
+
+Using generated security password: 5390c838-6588-48cc-b1df-04cee0caae63
+
+SecurityConfig.java     설정
+Member                  @Entity   
+MemberRepository    CRUD(Dao)
+MemberService
+Controller
+view                     연동
+
+
+
+
+
+
+
