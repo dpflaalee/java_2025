@@ -1,3 +1,10 @@
+### 35. 2025-04-09
+1. Spring-goot 이용하여 board 기능 구현하기 (추가해볼 기능 : 검색기능)
+2. security 시스템 기초
+3. securityConfig-Member-MemberRepository // 여기까지 완료 -MemberService-Controller-View
+
+---
+
 ### 34. 2025-04-08
 1. spring-boot 이용하여 board 구조 짜기 (ing)
 
