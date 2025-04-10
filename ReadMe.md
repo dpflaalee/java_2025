@@ -1,3 +1,9 @@
+### 36. 2025-04-10
+1. security -> MemberService-Controller-View 마무리
+2. security board 조립 로그인 한 인물 글쓰기 기능
+
+---
+
 ### 35. 2025-04-09
 1. Spring-goot 이용하여 board 기능 구현하기 (추가해볼 기능 : 검색기능)
 2. security 시스템 기초
