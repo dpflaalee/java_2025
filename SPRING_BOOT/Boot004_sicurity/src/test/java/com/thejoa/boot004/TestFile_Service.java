@@ -10,10 +10,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import com.thejoa.boot004.member.Member;
 import com.thejoa.boot004.member.MemberRepository;
+import com.thejoa.boot004.member.MemberService;
 
 @SpringBootTest
-class TestFile {
-	@Autowired MemberRepository memberRepository;
+class TestFile_Service {
+	@Autowired MemberRepository memberRepository; 
+	@Autowired MemberService memberService;
 
 	/*
 	insert update  >> save
@@ -21,13 +23,14 @@ class TestFile {
 	delete         >> delete
 	*/
 	
-	@Disabled @Test
+	@Disabled 
+	@Test
 	void insert() {
 		Member member = new Member();
 		member.setPassword("t333");
 		member.setUsername("third");
 		member.setEmail("third@gmail.com");
-		memberRepository.save(member);
+		System.out.println(memberService.insertMember(member));
 	}
 	
 	@Disabled 

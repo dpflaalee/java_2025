@@ -10,7 +10,7 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.thejoa</groupId>
-	<artifactId>Boot004_sicurity-1</artifactId>
+	<artifactId>Boot005_SecurityBoard</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Boot004_sicurity-1</name>
 	<description>Demo project for Spring Boot</description>

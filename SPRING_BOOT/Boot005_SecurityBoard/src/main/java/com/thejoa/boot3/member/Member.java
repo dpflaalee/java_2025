@@ -1,12 +1,17 @@
-package com.thejoa.boot004.member;
+package com.thejoa.boot3.member;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import com.thejoa.boot3.board.Board;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -26,4 +31,7 @@ public class Member {
 
 	@Column(updatable = false)
 	private LocalDateTime udate=LocalDateTime.now();
+	
+	@OneToMany
+	List<Board> board = new ArrayList<>();
 }
