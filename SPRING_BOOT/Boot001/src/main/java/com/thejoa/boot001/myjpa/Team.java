@@ -29,7 +29,7 @@ public class Team {
 	//private String eamil;
 	
 	@OneToMany
-	List<User> user = new ArrayList<>(); // 팀은 많은 멤버를 가진다
+	List<Member> user = new ArrayList<>(); // 팀은 많은 멤버를 가진다
 
 }
 

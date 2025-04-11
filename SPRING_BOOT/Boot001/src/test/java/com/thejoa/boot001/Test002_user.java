@@ -8,14 +8,14 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.thejoa.boot001.myjpa.Member;
 import com.thejoa.boot001.myjpa.Team;
 import com.thejoa.boot001.myjpa.TeamRepository;
-import com.thejoa.boot001.myjpa.User;
 import com.thejoa.boot001.myjpa.UserRepository;
 
 @SpringBootTest
 class Test002_user {
-	@Autowired TeamRepository  teamRepository;
+/*	@Autowired TeamRepository  teamRepository;
 	@Autowired UserRepository userRepository;
 	
 	@Disabled //@Test
@@ -23,7 +23,7 @@ class Test002_user {
 		Team team = new Team();
 		team.setId(1L);
 		
-		User user = new User();
+		Member user = new Member();
 		user.setName("third");
 		user.setAge(33);
 		user.setTeam(team);
@@ -33,17 +33,17 @@ class Test002_user {
 	//findAll 출력
 	@Test
 	public void selectAll() {
-		List<User> list = userRepository.findAll();
-		for(User u:list) {System.out.println(u.getName());}
+		List<Member> list = userRepository.findAll();
+		for(Member u:list) {System.out.println(u.getName());}
 	}
 	
 	//update로 1L 데이터값 수정
 	@Disabled //@Test
 	public void update() {
-		Optional<User> findUser = userRepository.findById(4L);
+		Optional<Member> findUser = userRepository.findById(4L);
 		System.out.println(findUser.isPresent());
 		
-		User user = findUser.get();
+		Member user = findUser.get();
 		user.setName("Didi");
 		userRepository.save(user);
 	}
@@ -51,11 +51,11 @@ class Test002_user {
 	
 	@Disabled //@Test
 	public void delete() {
-		Optional<User> findUser = userRepository.findById(1L);
-		User user = findUser.get();
+		Optional<Member> findUser = userRepository.findById(1L);
+		Member user = findUser.get();
 		userRepository.delete(user);
 	}
-	
+*/	
 }
 /*
 +----------+--------------+------+-----+---------+----------------+

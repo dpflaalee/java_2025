@@ -10,7 +10,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import com.thejoa.boot001.myjpa.Team;
 import com.thejoa.boot001.myjpa.TeamRepository;
-import com.thejoa.boot001.myjpa.User;
 import com.thejoa.boot001.myjpa.UserRepository;
 
 @SpringBootTest
