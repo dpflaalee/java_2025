@@ -1,3 +1,9 @@
+### 37. 2025-04-11
+1. ERD
+2. 팀프로젝트 컨셉/기능 확정 CRUD/TABLE 설계 (수정필요)
+
+---
+
 ### 36. 2025-04-10
 1. security -> MemberService-Controller-View 마무리
 2. security board 조립 로그인 한 인물 글쓰기 기능
