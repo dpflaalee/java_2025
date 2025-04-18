@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class MailController {
-	@Autowired NaverMail api;
+/*	@Autowired NaverMail api;
 	
 	@GetMapping("/mail")
 	public String mail() {return "mail";}
@@ -16,5 +16,5 @@ public class MailController {
 	public String mail_send(String subject, String content) {
 		api.sendMail(subject, content);
 		return "mail_result";
-	}
+	}*/
 }
