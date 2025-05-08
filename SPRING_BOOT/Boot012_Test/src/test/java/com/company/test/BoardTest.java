@@ -44,6 +44,12 @@ public class BoardTest {
 		}
 	}
 	
+	@Disabled @Test
+	public void selectAllOrderByDesc() {
+		List<Board> list = boardRepository.findAllByOrderByIddesc();
+		System.out.println(list.get(0).getBtitle());
+	}
+	
 	//update
 	@Disabled @Test
 	public void updateBoard() {
@@ -59,7 +65,7 @@ public class BoardTest {
 	//delete
 	@Test
 	public void deleteBoard() {
-		Optional<Board> findBoard = boardRepository.findById(2L);
+		Optional<Board> findBoard = boardRepository.findById(1L);
 		if(findBoard.isPresent()) {
 			Board board = findBoard.get();
 			boardRepository.delete(board);
