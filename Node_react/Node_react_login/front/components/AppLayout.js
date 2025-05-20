@@ -25,7 +25,7 @@ const AppLayout = ({children})=>{
   const changeLogo = ()=>{console.log('.......로고바꾸기'); setLogo('★Login★');}
 
   /*2. login 상태 */
-  const [isLoggin, SetIsLogin] = useState(false);
+  const [isLoggin, SetIsLogin] = useState(true);
 
   ////////////////////////////////////view
   return(
@@ -35,11 +35,11 @@ const AppLayout = ({children})=>{
         <Col xs={24} md={6}>
           {/*<h3 onClick={ ()=>{ console.log('......'); } }>{logo}</h3>*/}
           {/*<h3 onClick={changeLogo}>{logo}</h3>*/}
-          { isLoggin? <UserProfile/> : <LoginForm/> }
+          { isLoggin? <UserProfile/> : <LoginForm setIsLogin={isLoggin}/> }
         </Col>
         <Col xs={24} md={12} style={{backgroundColor:'#efefef'}}>{children}</Col>
         <Col xs={24} md={6}><div>
-          <a href="http://thejoa.com" target="_blank" rel="noreferrer noopener">Thejoa</a>
+          <a href="http://thejoa.com" target="_blank" rel="noreferrer noopener">Thejoa</a> 
           copyrights. all reserved</div>
         </Col>
       </Row>
