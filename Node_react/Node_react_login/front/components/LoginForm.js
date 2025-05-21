@@ -1,9 +1,12 @@
 import React , {useState , useCallback} from 'react'
 import { Input, Button, Form, Row, Col } from 'antd'; 
-import Link from 'next/Link';
+import Link from 'next/link';
 import userInput from '../hooks/userInput';
+import { loginAction } from '../reducers/user'; //#redux reducer4
+import { useDispatch } from 'react-redux'; //#redux reducer4
 
-const LoginForm = ({setIsLogin}) => { 
+//const LoginForm = ({setIsLogin}) => { 
+const LoginForm = () => { //#redux reducer5
   ///////////////////////////////////////////// code
   /*const [id, setId] = useState('');   // 상태관리 -컴포넌트에서 값이 변경
   const onChangeId = useCallback((e) => { // function -함수의 재생성 방지
@@ -19,18 +22,19 @@ const LoginForm = ({setIsLogin}) => {
   });*/
   const[password, onChangePassword] = userInput('');
 
+  const dispatch = useDispatch(); // #redux reducer6
+  const onSubmitForm = useCallback(() => {  // 컴포넌트가 처음 렌더링될때 한번만 생성
+    console.log("............" , id, password);
+    //setIsLogin(true);
+    dispatch( loginAction({ id, password }) ); //#redux reducer7
+  } , [id, password]); // id, password 값이 변경될때  
+
   //Q. 로그인버튼클릭시  -  count 의 숫자 증가 ,  콘솔창에 숫자증가   (useState)
   /*const [count, setCount] = useState(1);
   const onCount = () => { 
     setCount( count + 1);
     console.log(count);
   };*/
-
-  const onSubmitForm = useCallback(() => {  // 컴포넌트가 처음 렌더링될때 한번만 생성
-    console.log("............" , id, password);
-    setIsLogin(true);
-  } , [id, password]); // id, password 값이 변경될때  
-
   ///////////////////////////////////////////// view
   return (
     <>
