@@ -1,27 +1,30 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import 'antd/dist/antd.css';
+import 'antd/dist/antd.css';   // 공통css
 import Head from 'next/head';
-import {Provider} from 'react-redux'            //#redux
-import wrapper from '../store/configureStore';  //#redux
+import { Provider } from 'react-redux';   //##
+import wrapper from '../store/configureStore';  //## 
+import rootSagar from '../sgags'
 
-const TheJoa= ({Component, ...rest})=>{
-  ////////////////////////////////////////code
-  const {store, props} = wrapper.useWrappedStore(rest);
-  const {pageProps}= props;
-  ////////////////////////////////////////view
-  return(
-  <Provider store={store}>
+const TheJoa = ({ Component, ...rest }) => { 
+  //////////////////////////////////////////////// code
+  const { store, props } = wrapper.useWrappedStore(rest);
+  const { pageProps } = props;
+  //////////////////////////////////////////////// view
+  return (
+  <Provider  store={store}>
     <Head>
-      <meta charset="utf-8" />
+      <meta charSet="utf-8"/>
       <title>TheJoa</title>
     </Head>
     <Component/>
-  </Provider>);
+  </Provider>
+  );
 };
-TheJoa.propTypes={
-  Component:PropTypes.elementType.isRequired,
-  pageProps:PropTypes.any.isRequired
+
+TheJoa.propTypes = {
+  Component : PropTypes.elementType.isRequired ,
+  pageProps : PropTypes.any.isRequired
 }
 
 export default TheJoa;

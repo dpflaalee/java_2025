@@ -2,39 +2,26 @@ import React , {useState , useCallback} from 'react'
 import { Input, Button, Form, Row, Col } from 'antd'; 
 import Link from 'next/link';
 import userInput from '../hooks/userInput';
-import { loginAction } from '../reducers/user'; //#redux reducer4
-import { useDispatch } from 'react-redux'; //#redux reducer4
 
-//const LoginForm = ({setIsLogin}) => { 
-const LoginForm = () => { //#redux reducer5
-  ///////////////////////////////////////////// code
-  /*const [id, setId] = useState('');   // 상태관리 -컴포넌트에서 값이 변경
-  const onChangeId = useCallback((e) => { // function -함수의 재생성 방지
-    console.log(e.target.value);
-    setId(e.target.value);
-  }, []); */
-  const[id, onChangeId] = userInput('')
+import { useDispatch, useSelector } from 'react-redux';  //#2. redux - useDispatch
+import { loginAction } from '../reducers/user';  //######1. redux
 
-  /*const [password, setPassword] = useState(''); 
-  const onChangePassword = useCallback((e) => { 
-    console.log(e.target.value);
-    setPassword(e.target.value);
-  });*/
-  const[password, onChangePassword] = userInput('');
+//const LoginForm = ({setIsLogin}) => {
+const LoginForm = () => { //#3  redux
 
-  const dispatch = useDispatch(); // #redux reducer6
-  const onSubmitForm = useCallback(() => {  // 컴포넌트가 처음 렌더링될때 한번만 생성
-    console.log("............" , id, password);
-    //setIsLogin(true);
-    dispatch( loginAction({ id, password }) ); //#redux reducer7
-  } , [id, password]); // id, password 값이 변경될때  
+  const {logInLoding} = useSelector(state=>state.user);
+///////////////////////////////////////////// code
+  const [id, onChangeId] = userInput('');  
+  const [password, onChangePassword] = userInput('');  
 
-  //Q. 로그인버튼클릭시  -  count 의 숫자 증가 ,  콘솔창에 숫자증가   (useState)
-  /*const [count, setCount] = useState(1);
-  const onCount = () => { 
-    setCount( count + 1);
-    console.log(count);
-  };*/
+  const dispatch = useDispatch();  //#4.   redux
+
+  const onSubmitForm = useCallback(() => {
+    console.log(id, password);
+    //setIsLoggedIn(true);
+    dispatch(loginAction({ id, password }));
+ }, [id, password]);
+
   ///////////////////////////////////////////// view
   return (
     <>
@@ -53,10 +40,10 @@ const LoginForm = () => { //#redux reducer5
           <Button type="primary"
             style={{ marginRight: '2%' }}
             htmlType='submit'
-            loading={false}
+            loading={logInLoding}
             >로그인</Button> 
 
-          <Link  href="/signup"  legacyBehavior ><a><Button>회원가입</Button></a></Link>
+          <Link href="/signup"   legacyBehavior ><Button>회원가입</Button></Link>
         </Form.Item>
       </Form>
     </>  

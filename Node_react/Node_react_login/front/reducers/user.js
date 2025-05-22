@@ -1,35 +1,65 @@
-//step1) 초기값
-export const initialState = { 
-    isLogin:false,
-    user: null,
-    signupDate: {},
-    loginData: {} ,
-}; //E.initialState
+export const initialState = {
+  isLoggingIn: false, //로그인 시도중
+  isLoggedIn: false, 
+  isLoggingOut: false, //로그아웃 시도중
+  user: null,
+  signUpData: {},
+  loginData: {}
+};
 
-//step2) 로그인할때마다 설정 함수
-export const loginAction = ( data )=>{ 
-  return{type:'LOG_IN', data, }
- };  // E.login
+export const loginAction = (data) => {
+  return {
+     type: 'LOG_IN_REQUEST',
+     data,
+  }
+};
+
 export const logoutAction = {
-  type: 'LOG_OUT',
-}; // E.logout
+  type: 'LOG_OUT_REQUEST',
+};
 
-//step3) 이전+상태 = 다음상태
-export default ( state=initialState, action ) => { 
-   switch(action.type){ 
-    case 'LOG_IN' ://액션 
-      return{  
-        ...state, //이전상태
-        isLogin:true,
-        user: action.data //다음상태
-      }
-    case 'LOG_OUT' : 
-      return{ 
-        ...state,        
-        isLogin:false,
-        user: null ,      
+export default (state = initialState, action) => {
+  switch (action.type) {
+     case 'LOG_IN_REQUEST':
+        return {
+          ...state,  
+          isLoggingIn: true, //로그인 시도중 
+        }
+     case 'LOG_IN_SUCCESS':
+        return {
+          ...state,  
+          isLoggingIn: false, //로그인 시도중  
+          isLoggedIn: true, 
+          user: {...action.data, nickname:'sally'}
+        }
+     case 'LOG_IN_FAILURE':
+        return {
+          ...state,  
+          isLoggingIn: false, //로그인 시도중  
+          isLoggedIn: false 
+        }   
+        
+     case 'LOG_OUT_REQUEST':
+        return {
+          ...state,  
+          isLoggingOut: true, //로그아웃 시도중 
+        }
+     case 'LOG_OUT_SUCCESS':
+        return {
+          ...state,  
+          isLoggingOut: false, //로그아웃 시도중  
+          isLoggedIn: false, 
+          user: null
+        }
+     case 'LOG_OUT_FAILURE':
+        return {
+          ...state,  
+          isLoggingOut: false, //로그아웃 시도중   
+        }           
+     default: {
+        return {
+           ...state,
+        }
      }
-    default :
-      return{...state}
-  }  
-}; //E.export
+  }
+};

@@ -1,0 +1,26 @@
+import { Button, Input, Form } from "antd";
+import React, { useCallback } from "react";
+import PropTypes from "prop-types";
+import userInput from '../hooks/userInput';
+import { useSelector } from "react-redux";
+
+const CommentForm = ({post})=>{ // 어떤 게시글에 대한 댓글인가
+  ////////////////////////////////////////////code
+  const{isLogIn} = useSelector(state=>state.user);
+  const[comment, onChangeComment]=userInput('');
+  const onSubmitForm = useCallback(()=>{
+    console.log(post.id, comment);
+  }, [comment]);
+
+  ////////////////////////////////////////////view
+  return(
+    <Form onFinish={onSubmitForm} style={{textAlign:'right', marginTop:12, position:'relative'}}>
+      <Input.TextArea rows={5} value={comment} onChange={onChangeComment} 
+        style={{resize:'none', height:'8em'}} />
+      <Button htmlType="submit" type="primary" style={{position:'absolute', right:0, top:80}} >댓글</Button>
+    </Form>
+  )
+};
+
+CommentForm.protoType = { post:PropTypes.object.isRequired }
+export default CommentForm;

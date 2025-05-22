@@ -8,8 +8,8 @@ const userInput = (initialValue = null) => {
 
 export default userInput;
 
-//  const [id, setId] = useState('');
-//  const onChangeId = useCallback((e)=>{ setId(e.target.value) }, [] );
-
-//  const [nickname, setNickname] = useState('');
-//  const onChangeNickname = useCallback((e)=>{ setNickname(e.target.value) }, [] );  
+// const [id, setId] = useState('');
+// const onChangeId = useCallback((e) => { setId(e.target.value); }, []);
+  
+// const [nickname, setNickname] = useState('');
+// const onChangeNickname  = useCallback((e) => { setNickname(e.target.value); } ,[]);
