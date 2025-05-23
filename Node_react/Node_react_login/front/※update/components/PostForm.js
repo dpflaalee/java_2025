@@ -9,7 +9,7 @@ import userInput from '../hooks/userInput';
 
 const PostForm = () => { 
   //3. useSelect 이용해서 post ( 이미지 )
-  const { imagePaths , addPostLoading, addPostDone } = useSelector((state) => state.post);
+  const { imagePaths, addPostLoading, addPostDone } = useSelector((state) => state.post);
   const imageInput = useRef();
   const onClickImageUpload = useCallback(() => {
       imageInput.current.click();
@@ -17,20 +17,19 @@ const PostForm = () => {
 
   //4. dispatch - submit  ( 글 )
   const dispatch = useDispatch();
- const [text, onChangeText, setText] = userInput(''); 
+  const [text, onChangeText, setText] = userInput(''); 
 
-   useEffect(()=>{
-     if(addPostDone){setText('');}
-   },[addPostDone]);
+  useEffect(()=>{
+    if(addPostDone){setText('');}
+  },[addPostDone]);
 
-  const onSubmitForm = useCallback(() => {
-    dispatch({
-      type: ADD_POST_REQUEST,
-      data:{text}
-    });
-      setText('');
-  }, [text]);
-    
+    const onSubmitForm = useCallback(() => {
+        dispatch({
+          type: ADD_POST_REQUEST,
+          data: text
+        });        
+    }, [text]);
+   
 
   return (<Form layout="vertical" style={{ margin: '3%' }}
     encType="multipart/form-data" onFinish={onSubmitForm} >
@@ -43,8 +42,7 @@ const PostForm = () => {
         style={{display:'none'}}
       />
       <Button onClick={onClickImageUpload} >이미지업로드</Button>
-      <Button type="primary" style={{ float: 'right' }}
-          htmlType='submit'  loading={addPostLoading}>POST</Button>
+      <Button type="primary"   style={{float:'right'}}  htmlType='submit' loading={addPostLoading} >POST</Button>
     </Form.Item> 
     <div>
       {imagePaths.map((v, i) => (

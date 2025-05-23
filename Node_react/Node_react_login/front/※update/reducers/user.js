@@ -1,36 +1,36 @@
 // 1) 초기값
 export const initialState = {
-  logInLoding: false,   // 로그인 시도중    - 로딩창
+  logInLoading: false,   // 로그인 시도중    - 로딩창
   logInDone: false, 
   logInError: null,   
     
-  logOutLoding: false,   // 로그인 시도중    - 로딩창
+  logOutLoading: false,   // 로그인 시도중    - 로딩창
   logOutDone: false, 
   logOutError: null,   
-   //////////////////////////////////////// 추가1
-   signUpLoading: false, // 회원가입 시도중
-   signUpDone: false,
-   signUpError: null,
 
-   changeNicknameLoading: false, // 닉네임 변경 시도중
-   changeNicknameDone: false,
-   changeNicknameError: null,
+    //////////////////////////////////////// 추가1
+    signUpLoading: false, // 회원가입 시도중
+    signUpDone: false,
+    signUpError: null,
 
-   followDone: false,
-   followError: null,
+    changeNicknameLoading: false, // 닉네임 변경 시도중
+    changeNicknameDone: false,
+    changeNicknameError: null,
 
-   unfollowLoading: false, // 언팔로우 시도중
-   unfollowDone: false,
-   unfollowError: null,
 
-   //////////////////////////////////////// 추가1- END
+    followDone: false,
+    followError: null,
+
+    unfollowLoading: false, // 언팔로우 시도중
+    unfollowDone: false,
+    unfollowError: null,
+    //////////////////////////////////////// 추가1- END
 
   user: null,
   signUpData: {},
   loginData: {}
 };
 // 2) action
-
 export const loginAction = (data) => {
   return {
      type: 'LOG_IN_REQUEST',
@@ -41,18 +41,19 @@ export const logoutAction = {
   type: 'LOG_OUT_REQUEST',
 };
 
-/////
-export const LOG_IN_REQUEST = 'LOG_IN_REQUEST';    
+//////////////////////////////////////////////////////////////////////////////
+
+export const LOG_IN_REQUEST = 'LOG_IN_REQUEST';    // 로그인 시도중    - 로딩창
 export const LOG_IN_SUCCESS = 'LOG_IN_SUCCESS';
-export const LOG_IN_FAILURE = 'LOG_IN_FAILURE';
-  
+export const LOG_IN_FAILURE = 'LOG_IN_FAILURE' ;
+
 export const LOG_OUT_REQUEST = 'LOG_OUT_REQUEST';    
 export const LOG_OUT_SUCCESS = 'LOG_OUT_SUCCESS';
-export const LOG_OUT_FAILURE = 'LOG_OUT_FAILURE';
+export const LOG_OUT_FAILURE = 'LOG_OUT_FAILURE' ;
 
-export const SIGN_UP_REQUEST = 'SIGN_UP_REQUEST';   
+export const SIGN_UP_REQUEST = 'SIGN_UP_REQUEST';    
 export const SIGN_UP_SUCCESS = 'SIGN_UP_SUCCESS';
-export const SIGN_UP_FAILURE = 'SIGN_UP_FAILURE';
+export const SIGN_UP_FAILURE = 'SIGN_UP_FAILURE' ;
 
 //changeNicknameLoading
 export const CHANGE_NICKNAME_REQUEST = 'CHANGE_NICKNAME_REQUEST';    
@@ -79,70 +80,70 @@ const dummyUser = (data)=>({
    Followers: [ {nickname:'one'},{nickname:'two'},{nickname:'three'} ],
 });
 
-/////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
 export default (state = initialState, action) => {
   switch (action.type) {
      case LOG_IN_REQUEST:
         return {
           ...state,    //  이전
-          logInLoding: true,   // 로그인 시도중    - 로딩창
+          logInLoading: true,   // 로그인 시도중    - 로딩창
           logInDone: false, 
           logInError: null,   
         }
      case LOG_IN_SUCCESS:
          return {
             ...state,    //  이전
-            logInLoding: false,   // 로그인 시도중    - 로딩창
+            logInLoading: false,   // 로그인 시도중    - 로딩창
             logInDone: true,  
             user : dummyUser(action.data)
         }
      case LOG_IN_FAILURE:
          return {
             ...state,    //  이전
-            logInLoding: false,   // 로그인 시도중    - 로딩창 
+            logInLoading: false,   // 로그인 시도중    - 로딩창 
             logInError: action.error,   
          }     
       case LOG_OUT_REQUEST:
          return {
             ...state,    //  이전
-            logOutLoding: true,   // 로그인 시도중    - 로딩창
+            logOutLoading: true,   // 로그인 시도중    - 로딩창
             logOutDone: false, 
             logOutError: null,   
          }
       case LOG_OUT_SUCCESS:
          return {
             ...state,    //  이전
-            logOutLoding: false,   // 로그인 시도중    - 로딩창
+            logOutLoading: false,   // 로그인 시도중    - 로딩창
             logOutDone: true,   
             user : null
          }
       case LOG_OUT_FAILURE:
          return {
             ...state,    //  이전
-            logOutLoding: false,  
+            logOutLoading: false,  
             logOutError : action.error
-        }     
-     //////////////////////////////
-     case SIGN_UP_REQUEST:
-      return {
-         ...state,
-         signUpLoading: true,
-         signUpError: null,
-         signUpDone: false,
-      } 
-
-   case SIGN_UP_SUCCESS:
-      return {
-         ...state,
-         signUpLoading: false,
-         signUpDone: true,
-      } 
-   case SIGN_UP_FAILURE:
-      return {
-         ...state,
-         signUpLoading: false,
-         signUpError: action.error,
-      } 
+         }    
+////////////////////////////////////////////////////
+      case SIGN_UP_REQUEST:
+         return {
+            ...state,    //  이전
+            signUpLoading: true,  
+            signUpDone: false,
+            signUpError: null, 
+         }
+      case SIGN_UP_SUCCESS:
+         return {
+            ...state,    //  이전
+            signUpLoading: false,  
+            signUpDone: true,
+         }
+      case SIGN_UP_FAILURE:
+         return {
+            ...state,    //  이전
+            signUpLoading: false,  
+            signUpError: action.error,
+         }        
 ////////////////////////////////////////////////////
       case CHANGE_NICKNAME_REQUEST:
          return {
@@ -162,7 +163,7 @@ export default (state = initialState, action) => {
             ...state,    //  이전
             changeNicknameLoading: false, // 닉네임 변경 시도중
             changeNicknameError: action.error,
-         } 
+         }                     
      default: {
         return {
            ...state,

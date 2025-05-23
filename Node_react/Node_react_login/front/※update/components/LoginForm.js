@@ -3,13 +3,13 @@ import { Input, Button, Form, Row, Col } from 'antd';
 import Link from 'next/link';
 import userInput from '../hooks/userInput';
 
-import { useDispatch , useSelector} from 'react-redux';  //#2. redux - useDispatch
+import { useDispatch, useSelector } from 'react-redux';  //#2. redux - useDispatch
 import { loginAction } from '../reducers/user';  //######1. redux
 
 //const LoginForm = ({setIsLogin}) => {
 const LoginForm = () => { //#3  redux
 
-  const { logInLoding } = useSelector(state => state.user);  
+  const {logInLoading} = useSelector(state=>state.user);
 ///////////////////////////////////////////// code
   const [id, onChangeId] = userInput('');  
   const [password, onChangePassword] = userInput('');  
@@ -19,7 +19,7 @@ const LoginForm = () => { //#3  redux
   const onSubmitForm = useCallback(() => {
     console.log(id, password);
     //setIsLoggedIn(true);
-    dispatch( loginAction({ id, password }) );
+    dispatch(loginAction({ id, password }));
  }, [id, password]);
 
   ///////////////////////////////////////////// view
@@ -40,7 +40,7 @@ const LoginForm = () => { //#3  redux
           <Button type="primary"
             style={{ marginRight: '2%' }}
             htmlType='submit'
-            loading={logInLoding}
+            loading={logInLoading}
             >로그인</Button> 
 
           <Link href="/signup"   legacyBehavior ><Button>회원가입</Button></Link>

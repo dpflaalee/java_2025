@@ -30,6 +30,7 @@ const AppLayout = ({ children }) => {
               />, key: '/search'
     }
   ];
+  
   ///////////////////////////////////////////// view
   return ( 
     <div> 
