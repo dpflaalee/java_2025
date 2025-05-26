@@ -1,6 +1,6 @@
 import React, { useState , useMemo}  from 'react';   // react 불러오기   #
 import PropTypes from 'prop-types'; // props 타입검사하는 역할
-import Link from 'next/link';
+import Link from 'next/Link';
 import { Menu, Input, Row, Col  } from 'antd';
 import UserProfile from './UserProfile';
 import LoginForm from './LoginForm';

@@ -1,22 +1,19 @@
-import React, { useState, useCallback }  from 'react';
+import React, { useState, useCallback ,useEffect}  from 'react';
 import { Card, Avatar, Button , List, Comment  , Popover } from 'antd';
 import { EllipsisOutlined, HeartOutlined, HeartTwoTone, MessageOutlined, RetweetOutlined } from '@ant-design/icons';
 import PostImages from './PostImages';
 import CommentForm from './CommentForm';
-import { useSelector, useDispatch } from 'react-redux';
-import PropTypes  from  'prop-types';
+import {useDispatch, useSelector } from 'react-redux';  //2. ## useDispatch
+import PropTypes from 'prop-types';
 
-//1. REMOVE_POST_REQUEST
-import {REMOVE_POST_REQUEST} from '../reducers/post';
-import { useEffect } from 'react';
-//2. dispatch
+//1. ## REMOVE_POST_REQUEST 
+import { REMOVE_POST_REQUEST } from '../reducers/post';
 
 const PostCard = ({ post }) => { 
-  const id = useSelector((state) => state.user.user?.id);
-  const {removePostLoading, removePostDone} = useSelector(state=>state.post); //3.
-  const dispatch = useDispatch();
+  const id = useSelector((state) => state.user.user?.id); 
+  const { removePostLoading, removePostDone } = useSelector(state => state.post); //##3
+  const   dispatch = useDispatch();  //##4
   ///////////////////////////////////////////////////// code
-  // console.log(   id  );
 
   //1. 좋아요 - false
   const [like, setLike] = useState(false);
@@ -25,18 +22,20 @@ const PostCard = ({ post }) => {
   //2. 댓글 -  댓글의 상태체크 / 댓글처음에는 안보이게, 클릭하면  토글기능
   const [commentOpen, setCommentOpen] = useState(false);
   const onClickComment = useCallback(() => { setCommentOpen(  prev => !prev );   }, []);
+  
+  //3. 삭제버튼
+  useEffect(() => { 
+    if (removePostDone) { console.log('..... removePostDone');   }
+  } ,[] );
 
-  //REMOVE
-  useEffect(()=>{
-    if(removePostDone){alert('게시글을 삭제했습니다.');}
-  },[])
-  const onRemovePost = useCallback(()=>{
+  const onRemovePost = useCallback(() => { 
     dispatch({
       type: REMOVE_POST_REQUEST,
       data: post.id
     });
-  },[]);
-  
+  } , []);
+
+
   ///////////////////////////////////////////////////// view
   return (<div  style={{margin:'3%'}}>
     <Card 
@@ -52,7 +51,8 @@ const PostCard = ({ post }) => {
           <Button.Group>
             { id &&  id === post.User.id  
             ?(  <><Button>수정</Button>
-                  <Button type="danger" loading={removePostLoading} onClick={onRemovePost}>삭제</Button></>
+                <Button type="danger"
+                    loading={removePostLoading}  onClick={onRemovePost} >삭제</Button></>
               )
             :   <Button>신고</Button>
             }

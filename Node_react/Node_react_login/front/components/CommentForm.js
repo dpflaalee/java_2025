@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback , useEffect } from 'react';
 import { Button, Form, Input } from 'antd'
 import PropTypes from 'prop-types';
 import userInput from '../hooks/userInput'
@@ -16,7 +16,12 @@ const CommentForm = ({ post }) => {   // 어떤게시글에대한 댓글
   const dispatch = useDispatch();
 
   ///////////////////////////////////// code
-  const [comment, onChangeComment] = userInput('');
+  const [comment, onChangeComment, setComment] = userInput('');
+  
+  useEffect(() => { 
+    if (addCommentDone) { setComment('');  }
+  } , [addCommentDone]);
+
   const onSubmitForm = useCallback(() => { 
     console.log(post.id, comment);
     dispatch({

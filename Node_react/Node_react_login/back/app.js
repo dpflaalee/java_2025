@@ -13,9 +13,12 @@ const morgan = require('morgan'); // 요청상태 모니터
 
 const basicRouter = require('./routes/basic');  
 const testRouter = require('./routes/test'); 
-const user = require('./routes/user');   //##
-const post = require('./routes/post');   //##
-const posts = require('./routes/posts');   //##
+const user = require('./routes/user');   
+const post = require('./routes/post');
+const posts = require('./routes/posts');    //##  
+
+
+
   
 //2. 환경설정
 dotenv.config();    // 환경설정  .env 로드
@@ -44,6 +47,7 @@ app.use(session({
   saveUninitialized: false,  // 초기화되지 않은 세션은 저장하지 않음.
   resave: false, // 세션이 변경되지 않았다면 저장하지 않음.
   secret: process.env.COOKIE_SECRET ,   // 세션데이터 암호화하기 위한비밀키
+  cookie : {secure:false}
 }));
 app.use(passport.initialize());  // 인증처리 라이브러리 초기화
 app.use(passport.session()); // 사용자 인증상태를 세션에 저장
@@ -56,7 +60,7 @@ app.use('/api'    , basicRouter);  //## 추가2
 app.use('/test', testRouter);
 app.use('/user' , user);
 app.use('/post' , post);
-app.use('/posts' , posts);
+app.use('/posts' , posts);   //##  
 
 //6. 서버설정 및 실행
 app.listen(3065, () => { console.log('server....'); });

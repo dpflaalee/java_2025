@@ -5,7 +5,7 @@ module.exports = {
   "development": {
     "username": "root",
     "password": process.env.DB_PASSPORT,
-    "database": "node_react",
+    "database": "database_development",
     "host": "127.0.0.1",
     "dialect": "mysql", 
     "timezone":"+09:00",
@@ -13,7 +13,7 @@ module.exports = {
   "test": {
     "username": "root",
     "password": process.env.DB_PASSPORT,
-    "database": "node_react",
+    "database": "database_development",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "timezone":"+09:00",
@@ -21,7 +21,7 @@ module.exports = {
   "production": {
     "username": "root",
     "password": process.env.DB_PASSPORT,
-    "database": "node_react",
+    "database": "database_development",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "timezone":"+09:00",

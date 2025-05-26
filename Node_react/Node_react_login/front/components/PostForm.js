@@ -1,11 +1,11 @@
-import React, { useCallback, useState, useRef, useEffect } from 'react';
+import React, { useCallback, useState, useRef , useEffect} from 'react';  //##
 import { Form, Input, Button } from 'antd';
 
 //1. useDispatch , useSelector
 //2. addPost
 import { useDispatch, useSelector } from 'react-redux';
 import { ADD_POST_REQUEST } from '../reducers/post';
-import userInput from '../hooks/userInput';
+import userInput from '../hooks/userInput';  //##
 
 const PostForm = () => { 
   //3. useSelect 이용해서 post ( 이미지 )
@@ -17,20 +17,22 @@ const PostForm = () => {
 
   //4. dispatch - submit  ( 글 )
   const dispatch = useDispatch();
- const [text, onChangeText, setText] = userInput(''); 
+  const [text, onChangeText, setText] = userInput(''); 
 
-   useEffect(()=>{
-     if(addPostDone){setText('');}
-   },[addPostDone]);
+  useEffect(() => { 
+    if (addPostDone) { setText('');  }
+  } , [addPostDone]);
 
   const onSubmitForm = useCallback(() => {
     dispatch({
       type: ADD_POST_REQUEST,
-      data:{text}
+      data: text   //##
     });
-      setText('');
   }, [text]);
-    
+   
+
+
+
 
   return (<Form layout="vertical" style={{ margin: '3%' }}
     encType="multipart/form-data" onFinish={onSubmitForm} >
