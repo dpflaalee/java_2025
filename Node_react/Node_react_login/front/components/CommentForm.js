@@ -18,17 +18,16 @@ const CommentForm = ({ post }) => {   // 어떤게시글에대한 댓글
   ///////////////////////////////////// code
   const [comment, onChangeComment, setComment] = userInput('');
   
-  useEffect(() => { 
-    if (addCommentDone) { setComment('');  }
-  } , [addCommentDone]);
+  useEffect(() => { if (addCommentDone) { setComment('');  }} , [addCommentDone]);
 
   const onSubmitForm = useCallback(() => { 
     console.log(post.id, comment);
+    if(!id){ return alert('로그인이 필요합니다.'); }
     dispatch({
       type: ADD_COMMENT_REQUEST,
       data: { content:comment , userId:id, postId:post.id }
     })
-  } , [comment]);
+  } , [comment, id]);
   ///////////////////////////////////// view
   return (
     <Form  onFinish={onSubmitForm}  style={{margin:50 , position:'relative'}}  >

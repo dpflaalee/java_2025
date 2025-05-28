@@ -12,7 +12,7 @@ const Home = () => {
   const { user }   = useSelector(state => state.user); 
   const { mainPosts, hasMorePosts, loadPostsLoading } = useSelector(state => state.post);
 
- /** useEffect(()=>{
+  useEffect(()=>{
     if(hasMorePosts && !loadPostsLoading){
       const lastId = mainPosts[mainPosts.length-1]?.id;
       dispatch({
@@ -41,7 +41,7 @@ const Home = () => {
     return()=>{
       window.removeEventListener('scroll', onScroll);//스크롤했던거 지우기
     }
-  },[mainPosts, hasMorePosts, loadPostsLoading]) */
+  },[mainPosts, hasMorePosts, loadPostsLoading]) 
   
   return (<AppLayout> 
     { user &&  <PostForm /> }

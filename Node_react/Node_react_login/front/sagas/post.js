@@ -200,9 +200,7 @@ function* likePost(action) {
   }
 }
 
-function unlikePostAPI(data) {
-  return axios.delete(`/post/${data}/like`);
-}
+function unlikePostAPI(data) { return axios.delete(`/post/${data}/like`); }
 
 function* unlikePost(action) {
   try {

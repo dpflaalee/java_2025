@@ -8,6 +8,7 @@ const fs = require('fs');  // file system
 const { Post, User , Image, Comment, Hashtag } = require('../models');
 const { isLoggedIn } = require('./middlewares');
 
+//c(create) r/u(findOne,findeAll) d(destroy)
 
 /////  폴더 존재여부확인
 try {
@@ -156,14 +157,13 @@ router.patch('/:postId/like', isLoggedIn, async (req,res, next) => {
 
     await post.addLikers(req.user.id);
     
-    res.json({ UserId:req.user.id , Post:post.id  });
+    res.json({ UserId:req.user.id , PostId:post.id  });
    
   } catch (error) { 
     console.error(error);
     next(error);
   }
 });
-
 
 //5. 좋아요 삭제
 // 1.   DELETE       localhost:3065/post/1/like    ( 글번호 )
@@ -176,7 +176,7 @@ router.delete('/:postId/like', isLoggedIn, async (req,res, next) => {
     const post = await Post.findOne({ where: { id: req.params.postId } })
     if (!post) { return res.status(403).send('게시글을 확인해주세요');  }
 
-    await post.removeLikers(req.user.id);  //##
+    await post.removeLikers(req.user.id); 
     
     res.json({ UserId:req.user.id , Post:post.id  });
    

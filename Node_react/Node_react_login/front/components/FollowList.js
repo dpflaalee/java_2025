@@ -1,8 +1,9 @@
 import React , {useMemo} from 'react';
 import { List, Button, Card } from 'antd';
 import { UserDeleteOutlined } from '@ant-design/icons';
+import { useDispatch } from 'react-redux';
 
-const FollowList = ({header, data}) => {
+const FollowList = ({ header, data, onClikMore, loading }) => {
   ///////////////////////////////// code 
   const style = useMemo(() => ({
     margin:'3%' , backgroundColor:'white' , padding:'3%'
