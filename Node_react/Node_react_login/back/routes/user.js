@@ -2,8 +2,9 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
 const passport = require('passport');
-const { User , Post } = require('../models');
+const { User , Post, Comment, Image } = require('../models');
 const { isLoggedIn, isNotLoggedIn } = require('./middlewares');
+const {Op} =require('sequelize');
 
 // create :  객체.create({})
 // select :  객체.findAll , 객체.findOne
@@ -234,7 +235,63 @@ router.delete('/follower/:userId', isLoggedIn, async (req, res, next) => {  //##
   }
 });
 
+//11. 각 유저별 정보  GET /user/1
+router.get('/:userId', async  (req, res, next) => {  
+  try { 
+    //1) 로그인사용자확인
+    //2) 로그인한유저 정보반환
+      const fullUser = await User.findOne({
+        where : { id: req.params.userId } , // 조건 :  id로 검색
+        attributes : { exclude : ['password'] } ,// 비밀번호 빼고 결과가져오기
+        include: [
+            { model: Post , attributes : ['id']  }
+          , { model: User , as :'Followings' , attributes : ['id'] }
+          , { model: User , as :'Followers'  , attributes : ['id'] }
+        ]// Post, Followers , Followings
+      });
+      if(fullUser){
+        const data = fullUser.toJSON();
+        data.Posts = data.Posts.length;
+        data.Followers = data.Followers.length;
+        data.Followings = data.Followings.length;
 
+        res.status(200).json(data);
+        console.log('............user/번호', data);
+      }else{res.status(404).json('유저를 확인하세요'); }
+
+}catch(error){ console.error(error); next(error);}
+
+});
+
+//12. 해당유저 포스트 가져오기 
+
+router.get('/:userId/posts', async (req, res, next) => { 
+  try {
+    const where = {UserId: req.params.userId};
+    if ( parseInt( req.query.lastId , 10) ) {  where.id={  [Op.lt] : parseInt( req.query.lastId , 10)  }  }
+    const posts = await Post.findAll({
+      where, 
+      limit: 10,
+      order: [
+        ['createdAt', 'DESC'], 
+        [Comment , 'createdAt', 'DESC'] 
+      ],
+      include: [
+          { model: User , attributes : ['id','nickname'] }
+        , { model: Image                                 }
+        , { model: Comment, include: [{ model:User , attributes : ['id','nickname'] }]  }
+        , { model: User, as: 'Likers', attributes: ['id'] }
+        , { model: Post, as: 'Retweet',
+                include: [{ model: User, attributes: ['id', 'nickname'] }, { model: Image }]
+          } // 원본글 작성자와 이미지 포함.
+      ]
+    });
+    res.status(200).json(posts);
+  } catch (error) { 
+    console.error(error);
+    next(error);
+  }
+});
 
 /////////////////////////////////////
 module.exports = router;
