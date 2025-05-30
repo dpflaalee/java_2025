@@ -1,23 +1,24 @@
-import React, { useState , useMemo}  from 'react';   // react 불러오기   #
+import React, { useState , useMemo, useCallback}  from 'react';   // react 불러오기   #
 import PropTypes from 'prop-types'; // props 타입검사하는 역할
 import Link from 'next/Link';
 import { Menu, Input, Row, Col  } from 'antd';
 import UserProfile from './UserProfile';
 import LoginForm from './LoginForm';
 import styled from 'styled-components';
+import Router from 'next/router';
 
-import { useSelector } from 'react-redux';  //## reducer1
+import { useSelector } from 'react-redux';  // reducer1 
+import userInput from '../hooks/userInput';
+const InputSearch = styled(Input.Search)` vertical-align:middle; `;
 
-const InputSearch = styled(Input.Search)`
-  vertical-align:middle;
-`;
-
-const AppLayout = ({ children }) => { 
-
+const AppLayout = ({ children }) => {  
   // useMemo
-  const stylebg = useMemo(() => ({ backgroundColor: '#efefef' }), []);
-
+  const stylebg = useMemo(() => ({ backgroundColor: '#efefef' }), []); 
   const { user } = useSelector(state => state.user); 
+  const [searchInput, onChangeSearchInout] = userInput( '' );
+  const onSearch = useCallback( ()=>{
+    Router.push(`/hashtag/${searchInput}`);
+  }, [searchInput] );
 
   ///////////////////////////////////////////// code
   const items = [
@@ -27,6 +28,9 @@ const AppLayout = ({ children }) => {
     ,{ label: <InputSearch 
                 placeholder="input search text" 
                 enterButton
+                value={searchInput}
+                onChange={onChangeSearchInout}
+                onSearch={onSearch}
               />, key: '/search'
     }
   ];

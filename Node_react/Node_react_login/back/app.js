@@ -16,6 +16,7 @@ const testRouter = require('./routes/test');
 const user = require('./routes/user');   
 const post = require('./routes/post');
 const posts = require('./routes/posts');    //##  
+const hashtag = require('./routes/hashtag')
 
 
 
@@ -60,7 +61,8 @@ app.use('/api'    , basicRouter);  //## 추가2
 app.use('/test', testRouter);
 app.use('/user' , user);
 app.use('/post' , post);
-app.use('/posts' , posts);   //##  
+app.use('/posts' , posts);    
+app.use('/hashtag' , hashtag);    
 
 //6. 서버설정 및 실행
 app.listen(3065, () => { console.log('server....'); });
