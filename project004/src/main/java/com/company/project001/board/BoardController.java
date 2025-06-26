@@ -82,16 +82,26 @@ public class BoardController {
 		return "redirect:/board/list";}
 	
 //----------수정
-//	@GetMapping("/board/update")
-//	public String update_get (Principal principal, Model model) {return "/board/write";}
+	@GetMapping("/board/edit/{id}")
+	public String update_get (@PathVariable Long id, Model model) {
+		model.addAttribute("dto", service.update_view(id));
+		return "/board/edit";}
 	
-//	@GetMapping("/board/update")
-//	public String update_post (Principal principal, Model model) {return "/board/list";}
+	@PostMapping("/board/edit")
+	public String update_post (MultipartFile file, Board board, RedirectAttributes rttr) {
+		String msg = service.update(file, board) > 0 ? "글수정 성공!" : "글수정 실패";
+		rttr.addFlashAttribute("msg", msg);
+		return "redirect:/board/detail"+board.getId();}
 	
 //----------삭제
-//	@GetMapping("/board/delete")
-//	public String delete_get (Principal principal, Model model) {return "/board/write";}
+	@GetMapping("/board/delete/{id}")
+	public String delete_get (@PathVariable Long id, Model model ) {
+		model.addAttribute("id", id);
+		return "/board/delete";}
 	
-//	@GetMapping("/board/delete")
-//	public String delete_post (Principal principal, Model model) {return "/board/list";}	
+	@PostMapping("/board/delete")
+	public String delete_post (Board board, RedirectAttributes rttr) {
+		String msg = service.delete(board) > 0 ? "글삭제 성공!" : "글삭제 실패";
+		rttr.addFlashAttribute("msg", msg);
+		return "redirect:/board/list";}	
 }
